@@ -1,0 +1,40 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'VFitness | Nutrición y Entrenamiento Personal en Santa Coloma de Gramenet',
+  description = 'VFitness te ayuda a transformar tu cuerpo con planes personalizados de nutrición y entrenamiento. Entrenador personal y nutricionista en Santa Coloma de Gramenet, Barcelona.',
+} = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://vfitness.example.com" />
+
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://vfitness.example.com" />
+
+    <link rel="icon" href="/favicon.ico" />
+
+    <meta name="theme-color" content="#050608" />
+
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body class="bg-black text-vfit-white">
+    <main class="min-h-screen">{/* Main layout wrapper */}<slot /></main>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="VFitness Ejemplo 3 | Entrenador Personal · Santa Coloma de Gramenet"
+  description="Energía y resultados. Entrenamiento y nutrición en VFitness, Santa Coloma de Gramenet."
+>
+  <div class="min-h-screen bg-black text-vfit-white">
+    <header class="sticky top-0 z-40 border-b border-neutral-800 bg-black">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
+        <span class="text-lg font-bold tracking-tighter text-vfit-white">VFITNESS</span>
+        <nav class="hidden gap-8 text-sm font-medium uppercase tracking-wider text-neutral-400 md:flex">
+          <a href="/example-3#servicios" class="hover:text-vfit-gold">Servicios</a>
+          <a href="/example-3#numeros" class="hover:text-vfit-gold">Resultados</a>
+          <a href="/example-3#contacto" class="hover:text-vfit-gold">Contacto</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="/" class="text-[10px] uppercase text-neutral-500 hover:text-vfit-gold">Ejemplos</a>
+          <a href="/example-3#contacto" class="rounded bg-vfit-gold px-4 py-2 text-xs font-bold uppercase tracking-wider text-black hover:bg-vfit-gold/90">
+            Reserva
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="relative overflow-hidden border-b border-neutral-800">
+        <div class="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,black_70%)] z-10" />
+        <div class="relative z-20 mx-auto max-w-6xl px-4 py-24 md:px-6 md:py-32">
+          <p class="text-xs font-bold uppercase tracking-[0.3em] text-vfit-gold">Nutrición & Entrenamiento</p>
+          <h1 class="mt-4 max-w-4xl text-4xl font-black uppercase leading-[1.1] tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+            Transforma.
+            <br />
+            <span class="text-vfit-gold">No esperes.</span>
+          </h1>
+          <p class="mt-6 max-w-lg text-sm text-neutral-400 md:text-base">
+            Planes de nutrición y fuerza para perder grasa, ganar músculo y rendir. Sin rodeos. Desde Santa Coloma de Gramenet, contigo donde estés.
+          </p>
+          <a
+            href="/example-3#contacto"
+            class="mt-10 inline-block rounded bg-vfit-gold px-8 py-4 text-sm font-bold uppercase tracking-wider text-black transition hover:bg-vfit-gold/90"
+          >
+            Quiero empezar
+          </a>
+        </div>
+      </section>
+
+      <section id="numeros" class="border-b border-neutral-800 bg-neutral-950">
+        <div class="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
+          <div class="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12">
+            <div>
+              <p class="text-4xl font-black text-vfit-gold md:text-5xl">+150</p>
+              <p class="mt-1 text-xs uppercase tracking-wider text-neutral-500">Personas acompañadas</p>
+            </div>
+            <div>
+              <p class="text-4xl font-black text-vfit-gold md:text-5xl">7+</p>
+              <p class="mt-1 text-xs uppercase tracking-wider text-neutral-500">Años de experiencia</p>
+            </div>
+            <div>
+              <p class="text-4xl font-black text-vfit-gold md:text-5xl">90%</p>
+              <p class="mt-1 text-xs uppercase tracking-wider text-neutral-500">Mejoran hábitos</p>
+            </div>
+            <div>
+              <p class="text-4xl font-black text-vfit-gold md:text-5xl">24/7</p>
+              <p class="mt-1 text-xs uppercase tracking-wider text-neutral-500">Seguimiento directo</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="servicios" class="border-b border-neutral-800 bg-black">
+        <div class="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
+          <h2 class="text-2xl font-bold uppercase tracking-tight md:text-3xl">Qué incluye</h2>
+          <div class="mt-12 grid gap-6 md:grid-cols-3">
+            <article class="rounded-lg border border-neutral-800 bg-neutral-950 p-6">
+              <h3 class="text-sm font-bold uppercase tracking-wider text-vfit-gold">Nutrición</h3>
+              <p class="mt-3 text-sm text-neutral-400">Plan a tu medida. Ajustes periódicos. Sin dietas milagro.</p>
+            </article>
+            <article class="rounded-lg border border-neutral-800 bg-neutral-950 p-6">
+              <h3 class="text-sm font-bold uppercase tracking-wider text-vfit-gold">Entreno</h3>
+              <p class="mt-3 text-sm text-neutral-400">Rutinas de fuerza. Gimnasio o casa. Progresión real.</p>
+            </article>
+            <article class="rounded-lg border border-neutral-800 bg-neutral-950 p-6">
+              <h3 class="text-sm font-bold uppercase tracking-wider text-vfit-gold">Seguimiento</h3>
+              <p class="mt-3 text-sm text-neutral-400">Revisiones y contacto directo. Constancia garantizada.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="planes" class="border-b border-neutral-800 bg-neutral-950">
+        <div class="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
+          <h2 class="text-2xl font-bold uppercase tracking-tight md:text-3xl">Planes</h2>
+          <div class="mt-10 flex flex-col gap-4 md:flex-row md:gap-6">
+            <article class="flex-1 rounded-lg border border-neutral-700 p-6">
+              <p class="text-[10px] font-bold uppercase text-neutral-500">Inicio</p>
+              <h3 class="mt-2 text-lg font-bold">Desde Cero</h3>
+              <p class="mt-2 text-sm text-neutral-400">3 días/semana. Guía de hábitos. Ideal para empezar.</p>
+            </article>
+            <article class="flex-1 rounded-lg border-2 border-vfit-gold bg-black/50 p-6">
+              <p class="text-[10px] font-bold uppercase text-vfit-gold">Recomendado</p>
+              <h3 class="mt-2 text-lg font-bold">Recomposición</h3>
+              <p class="mt-2 text-sm text-neutral-300">3–5 días/semana. Pérdida de grasa y ganancia muscular.</p>
+            </article>
+            <article class="flex-1 rounded-lg border border-neutral-700 p-6">
+              <p class="text-[10px] font-bold uppercase text-neutral-500">Avanzado</p>
+              <h3 class="mt-2 text-lg font-bold">Rendimiento</h3>
+              <p class="mt-2 text-sm text-neutral-400">Bloques y periodización. Para quien ya entrena fuerte.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="bg-black">
+        <div class="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
+          <h2 class="text-2xl font-bold uppercase tracking-tight md:text-3xl">Reserva</h2>
+          <p class="mt-2 text-neutral-400">Carrer de Sant Jeroni, 10 · 08921 Santa Coloma de Gramenet, Barcelona.</p>
+          <form class="mt-10 max-w-md space-y-4" aria-label="Contacto VFitness">
+            <input type="text" name="nombre" placeholder="Nombre" class="w-full rounded border border-neutral-700 bg-neutral-900 px-4 py-3 text-vfit-white placeholder:text-neutral-500 focus:border-vfit-gold focus:outline-none" />
+            <input type="email" name="email" placeholder="Email" class="w-full rounded border border-neutral-700 bg-neutral-900 px-4 py-3 text-vfit-white placeholder:text-neutral-500 focus:border-vfit-gold focus:outline-none" />
+            <textarea name="mensaje" rows="3" placeholder="Mensaje" class="w-full rounded border border-neutral-700 bg-neutral-900 px-4 py-3 text-vfit-white placeholder:text-neutral-500 focus:border-vfit-gold focus:outline-none" />
+            <button type="submit" class="w-full rounded bg-vfit-gold py-3 text-sm font-bold uppercase tracking-wider text-black hover:bg-vfit-gold/90">
+              Enviar
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-neutral-800 py-6">
+      <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 text-xs text-neutral-500 md:flex-row md:justify-between md:px-6">
+        <p>© {new Date().getFullYear()} VFitness</p>
+        <p><a href="/" class="hover:text-vfit-gold">Ver todos los ejemplos</a></p>
+      </div>
+    </footer>
+  </div>
+</Layout>

@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const examples = [
+  {
+    slug: 'example-1',
+    title: 'Ejemplo 1',
+    subtitle: 'Oscuro & Dorado',
+    description: 'Landing clásica: fondo negro, acentos dorados, formulario de evaluación en el hero. Ideal para transmitir seriedad y premium.',
+    cta: 'Ver ejemplo 1',
+  },
+  {
+    slug: 'example-2',
+    title: 'Ejemplo 2',
+    subtitle: 'Claro & Minimal',
+    description: 'Diseño claro y limpio: fondos claros, tipografía espaciada, detalles en dorado. Sensación de calma y profesionalidad.',
+    cta: 'Ver ejemplo 2',
+  },
+  {
+    slug: 'example-3',
+    title: 'Ejemplo 3',
+    subtitle: 'Energía & Números',
+    description: 'Enfoque más gym: tipografía grande, métricas destacadas, bloques de contenido impactantes. Para audiencia fitness activa.',
+    cta: 'Ver ejemplo 3',
+  },
+  {
+    slug: 'example-4',
+    title: 'Ejemplo 4',
+    subtitle: 'Editorial & Asimétrico',
+    description: 'Estilo revista: layout asimétrico, secciones con mucho aire, sensación editorial. Diferente al resto de competencia.',
+    cta: 'Ver ejemplo 4',
+  },
+];
+---
+
+<Layout
+  title="VFitness · Webs de prueba para el entrenador"
+  description="Cuatro ejemplos de landing para VFitness. Elige la dirección visual que más encaje con tu marca."
+>
+  <div class="min-h-screen bg-black text-vfit-white">
+    <header class="border-b border-neutral-800 bg-black/90 backdrop-blur">
+      <div class="mx-auto flex max-w-4xl items-center justify-between px-4 py-3 md:px-6">
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-semibold tracking-[0.2em] text-vfit-gold">V-FITNESS</span>
+          <span class="rounded bg-neutral-800 px-2 py-0.5 text-[10px] uppercase text-neutral-400">Webs de prueba</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="mx-auto max-w-4xl px-4 py-10 md:py-16">
+      <section class="mb-12 md:mb-16">
+        <h1 class="text-2xl font-semibold tracking-tight text-vfit-white md:text-3xl">
+          Ideas para tu web de VFitness
+        </h1>
+        <p class="mt-4 max-w-2xl text-sm leading-relaxed text-neutral-300 md:text-base">
+          Hola. Esta es una <strong class="text-neutral-200">página de prueba</strong> pensada para ti como entrenador y nutricionista.
+          Aquí no se muestra una única web definitiva, sino <strong class="text-vfit-gold">cuatro ejemplos distintos</strong> de cómo podría verse la landing de VFitness.
+        </p>
+        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-neutral-400">
+          Debajo encontrarás <strong class="text-neutral-300">4 tarjetas</strong>. Cada una lleva a un diseño diferente (oscuro, claro, más gym, más editorial).
+          Navega entre ellos, compara y anota qué te gusta de cada uno: estructura, tono, colores o secciones. Con eso podremos definir juntos la web final.
+        </p>
+        <p class="mt-2 text-xs text-neutral-500">
+          Todos usan la misma paleta (negro, blanco, dorado) y la ubicación en Santa Coloma de Gramenet. Solo cambia el estilo visual y la disposición del contenido.
+        </p>
+      </section>
+
+      <section class="grid gap-6 sm:grid-cols-2" aria-label="Ejemplos de web VFitness">
+        {examples.map((ex) => (
+          <a
+            href={`/${ex.slug}`}
+            class="group flex flex-col rounded-2xl border border-neutral-800 bg-neutral-950/80 p-6 transition hover:border-vfit-gold/50 hover:bg-neutral-900/80"
+          >
+            <div class="mb-2 flex items-center justify-between">
+              <span class="text-xs font-semibold uppercase tracking-[0.18em] text-vfit-gold">{ex.title}</span>
+              <span class="text-[10px] uppercase text-neutral-500">{ex.subtitle}</span>
+            </div>
+            <h2 class="text-lg font-semibold text-vfit-white group-hover:text-vfit-gold/90">{ex.subtitle}</h2>
+            <p class="mt-2 flex-1 text-sm text-neutral-400">
+              {ex.description}
+            </p>
+            <span class="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-vfit-gold group-hover:gap-3 transition-[gap]">
+              {ex.cta}
+              <span aria-hidden="true">→</span>
+            </span>
+          </a>
+        ))}
+      </section>
+
+      <p class="mt-10 text-center text-xs text-neutral-500">
+        Puedes volver a esta página desde cualquier ejemplo con el enlace <strong class="text-neutral-400">«Ver todos los ejemplos»</strong> en el pie de página.
+      </p>
+    </div>
+
+    <footer class="mt-16 border-t border-neutral-900 py-6">
+      <div class="mx-auto max-w-4xl px-4 text-center text-xs text-neutral-500 md:px-6">
+        <p>© {new Date().getFullYear()} VFitness · Webs de prueba para el entrenador.</p>
+      </div>
+    </footer>
+  </div>
+</Layout>
