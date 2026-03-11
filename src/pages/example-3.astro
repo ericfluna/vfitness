@@ -1,138 +1,146 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { SITE, METHOD, PLANS, RECOMMENDED_PLAN_ID } from '../data/vfitness';
+const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -1 : b.id === RECOMMENDED_PLAN_ID ? 1 : 0));
 ---
 
-<Layout
-  title="VFitness Ejemplo 3 | Entrenador Personal · Santa Coloma de Gramenet"
-  description="Energía y resultados. Entrenamiento y nutrición en VFitness, Santa Coloma de Gramenet."
->
-  <div class="min-h-screen bg-black text-vfit-white">
-    <header class="sticky top-0 z-40 border-b border-neutral-800 bg-black">
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
-        <span class="text-lg font-bold tracking-tighter text-vfit-white">VFITNESS</span>
-        <nav class="hidden gap-8 text-sm font-medium uppercase tracking-wider text-neutral-400 md:flex">
-          <a href="/example-3#servicios" class="hover:text-vfit-gold">Servicios</a>
-          <a href="/example-3#numeros" class="hover:text-vfit-gold">Resultados</a>
-          <a href="/example-3#contacto" class="hover:text-vfit-gold">Contacto</a>
+<Layout title="VFitness | Brutalist · Fuerza y Esfuerzo" description="Método VFitness. Entrenamiento de fuerza y nutrición. Planes online.">
+  <div class="min-h-screen bg-brutal-dark font-brutal text-white antialiased">
+    <header class="sticky top-0 z-50 border-b-4 border-brutal-black bg-brutal-dark transition-all" id="main-header">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4 md:px-8">
+        <a href="/example-3" class="text-2xl tracking-tighter text-brutal-yellow md:text-3xl">VFITNESS</a>
+        <nav class="hidden gap-8 text-lg tracking-tight text-white/90 md:flex">
+          <a href="/example-3#metodo" class="hover:text-brutal-yellow">Método</a>
+          <a href="/example-3#planes" class="hover:text-brutal-yellow">Planes</a>
+          <a href="/example-3#ubicacion" class="hover:text-brutal-yellow">Ubicación</a>
+          <a href="/example-3#contacto" class="hover:text-brutal-yellow">Contacto</a>
         </nav>
         <div class="flex items-center gap-3">
-          <a href="/" class="text-[10px] uppercase text-neutral-500 hover:text-vfit-gold">Ejemplos</a>
-          <a href="/example-3#contacto" class="rounded bg-vfit-gold px-4 py-2 text-xs font-bold uppercase tracking-wider text-black hover:bg-vfit-gold/90">
-            Reserva
-          </a>
+          <a href="/example-3#planes" class="bg-brutal-yellow px-6 py-3 text-lg font-normal tracking-tight text-brutal-black transition hover:bg-brutal-yellow/90 md:inline-flex">EMPEZAR</a>
+          <button type="button" class="flex h-12 w-12 shrink-0 items-center justify-center border-4 border-brutal-yellow text-brutal-yellow md:hidden" id="menu-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menú">
+            <span class="menu-icon-open text-xl">≡</span>
+            <span class="menu-icon-close hidden text-xl">×</span>
+          </button>
         </div>
+      </div>
+      <div class="mobile-nav-panel hidden border-t-4 border-brutal-yellow bg-brutal-dark px-4 py-4 md:hidden" id="mobile-nav">
+        <nav class="flex flex-col gap-2 text-xl tracking-tight">
+          <a href="/example-3#metodo" class="py-3 text-white/90 hover:text-brutal-yellow">Método</a>
+          <a href="/example-3#planes" class="py-3 text-white/90 hover:text-brutal-yellow">Planes</a>
+          <a href="/example-3#ubicacion" class="py-3 text-white/90 hover:text-brutal-yellow">Ubicación</a>
+          <a href="/example-3#contacto" class="py-3 text-white/90 hover:text-brutal-yellow">Contacto</a>
+        </nav>
       </div>
     </header>
 
     <main>
-      <section class="relative overflow-hidden border-b border-neutral-800">
-        <div class="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,black_70%)] z-10" />
-        <div class="relative z-20 mx-auto max-w-6xl px-4 py-24 md:px-6 md:py-32">
-          <p class="text-xs font-bold uppercase tracking-[0.3em] text-vfit-gold">Nutrición & Entrenamiento</p>
-          <h1 class="mt-4 max-w-4xl text-4xl font-black uppercase leading-[1.1] tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-            Transforma.
-            <br />
-            <span class="text-vfit-gold">No esperes.</span>
-          </h1>
-          <p class="mt-6 max-w-lg text-sm text-neutral-400 md:text-base">
-            Planes de nutrición y fuerza para perder grasa, ganar músculo y rendir. Sin rodeos. Desde Santa Coloma de Gramenet, contigo donde estés.
-          </p>
-          <a
-            href="/example-3#contacto"
-            class="mt-10 inline-block rounded bg-vfit-gold px-8 py-4 text-sm font-bold uppercase tracking-wider text-black transition hover:bg-vfit-gold/90"
-          >
-            Quiero empezar
-          </a>
-        </div>
-      </section>
-
-      <section id="numeros" class="border-b border-neutral-800 bg-neutral-950">
-        <div class="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
-          <div class="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12">
-            <div>
-              <p class="text-4xl font-black text-vfit-gold md:text-5xl">+150</p>
-              <p class="mt-1 text-xs uppercase tracking-wider text-neutral-500">Personas acompañadas</p>
-            </div>
-            <div>
-              <p class="text-4xl font-black text-vfit-gold md:text-5xl">7+</p>
-              <p class="mt-1 text-xs uppercase tracking-wider text-neutral-500">Años de experiencia</p>
-            </div>
-            <div>
-              <p class="text-4xl font-black text-vfit-gold md:text-5xl">90%</p>
-              <p class="mt-1 text-xs uppercase tracking-wider text-neutral-500">Mejoran hábitos</p>
-            </div>
-            <div>
-              <p class="text-4xl font-black text-vfit-gold md:text-5xl">24/7</p>
-              <p class="mt-1 text-xs uppercase tracking-wider text-neutral-500">Seguimiento directo</p>
+      <section class="relative min-h-[100vh] overflow-hidden border-b-4 border-brutal-black" id="hero">
+        <div class="absolute inset-0 bg-brutal-dark" />
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(250,204,21,0.05)_0%,transparent_70%)]" aria-hidden="true" />
+        <div class="relative z-10 flex min-h-[100vh] flex-col justify-center px-4 py-20 md:px-8">
+          <div class="mx-auto w-full max-w-5xl">
+            <h1 class="text-5xl leading-[0.95] tracking-tighter text-white sm:text-6xl md:text-7xl lg:text-8xl">
+              NO<br />
+              <span class="text-brutal-yellow">TE PARES.</span>
+            </h1>
+            <p class="mt-8 max-w-xl text-lg text-white/80">
+              Método simple y muy efectivo. Calorías, macros y plan de entrenamiento. Más de 7.000 cambios. Sin tonterías.
+            </p>
+            <a href="/example-3#planes" class="mt-10 inline-block bg-brutal-yellow px-8 py-4 text-2xl tracking-tight text-brutal-black transition hover:bg-brutal-yellow/90">EMPEZAR</a>
+            <div class="mt-20 flex flex-wrap gap-16 border-t-4 border-brutal-cement/30 pt-10">
+              <div><p class="text-5xl tracking-tighter text-brutal-yellow md:text-6xl">7000+</p><p class="mt-1 text-sm uppercase tracking-widest text-white/50">CAMBIOS</p></div>
+              <div><p class="text-5xl tracking-tighter text-brutal-yellow md:text-6xl">100%</p><p class="mt-1 text-sm uppercase tracking-widest text-white/50">ONLINE</p></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="servicios" class="border-b border-neutral-800 bg-black">
-        <div class="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
-          <h2 class="text-2xl font-bold uppercase tracking-tight md:text-3xl">Qué incluye</h2>
-          <div class="mt-12 grid gap-6 md:grid-cols-3">
-            <article class="rounded-lg border border-neutral-800 bg-neutral-950 p-6">
-              <h3 class="text-sm font-bold uppercase tracking-wider text-vfit-gold">Nutrición</h3>
-              <p class="mt-3 text-sm text-neutral-400">Plan a tu medida. Ajustes periódicos. Sin dietas milagro.</p>
-            </article>
-            <article class="rounded-lg border border-neutral-800 bg-neutral-950 p-6">
-              <h3 class="text-sm font-bold uppercase tracking-wider text-vfit-gold">Entreno</h3>
-              <p class="mt-3 text-sm text-neutral-400">Rutinas de fuerza. Gimnasio o casa. Progresión real.</p>
-            </article>
-            <article class="rounded-lg border border-neutral-800 bg-neutral-950 p-6">
-              <h3 class="text-sm font-bold uppercase tracking-wider text-vfit-gold">Seguimiento</h3>
-              <p class="mt-3 text-sm text-neutral-400">Revisiones y contacto directo. Constancia garantizada.</p>
-            </article>
+      <section id="metodo" class="border-b-4 border-brutal-black bg-brutal-dark py-16 md:py-24">
+        <div class="mx-auto max-w-6xl px-4 md:px-8">
+          <h2 class="text-4xl tracking-tighter text-brutal-yellow md:text-5xl">{METHOD.title}</h2>
+          <p class="mt-4 text-lg text-white/80">{METHOD.tagline}</p>
+          <ul class="mt-10 space-y-6">
+            {METHOD.points.map((point) => (
+              <li class="flex gap-4 text-lg text-white/90">
+                <span class="block h-1 w-8 shrink-0 bg-brutal-yellow self-center" aria-hidden="true" />
+                <span class="break-words-safe">{point}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-14 border-4 border-brutal-yellow bg-brutal-black p-8">
+            <p class="text-4xl tracking-tighter text-brutal-yellow md:text-5xl">{METHOD.stat}</p>
+            <p class="mt-2 text-white/80">{METHOD.statLabel}</p>
+            <a href="/example-3#planes" class="mt-6 inline-block bg-brutal-yellow px-6 py-3 text-xl tracking-tight text-brutal-black">{METHOD.cta}</a>
           </div>
         </div>
       </section>
 
-      <section id="planes" class="border-b border-neutral-800 bg-neutral-950">
-        <div class="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
-          <h2 class="text-2xl font-bold uppercase tracking-tight md:text-3xl">Planes</h2>
-          <div class="mt-10 flex flex-col gap-4 md:flex-row md:gap-6">
-            <article class="flex-1 rounded-lg border border-neutral-700 p-6">
-              <p class="text-[10px] font-bold uppercase text-neutral-500">Inicio</p>
-              <h3 class="mt-2 text-lg font-bold">Desde Cero</h3>
-              <p class="mt-2 text-sm text-neutral-400">3 días/semana. Guía de hábitos. Ideal para empezar.</p>
-            </article>
-            <article class="flex-1 rounded-lg border-2 border-vfit-gold bg-black/50 p-6">
-              <p class="text-[10px] font-bold uppercase text-vfit-gold">Recomendado</p>
-              <h3 class="mt-2 text-lg font-bold">Recomposición</h3>
-              <p class="mt-2 text-sm text-neutral-300">3–5 días/semana. Pérdida de grasa y ganancia muscular.</p>
-            </article>
-            <article class="flex-1 rounded-lg border border-neutral-700 p-6">
-              <p class="text-[10px] font-bold uppercase text-neutral-500">Avanzado</p>
-              <h3 class="mt-2 text-lg font-bold">Rendimiento</h3>
-              <p class="mt-2 text-sm text-neutral-400">Bloques y periodización. Para quien ya entrena fuerte.</p>
-            </article>
+      <section id="planes" class="border-b-4 border-brutal-black py-16 md:py-24">
+        <div class="mx-auto max-w-6xl px-4 md:px-8">
+          <h2 class="text-4xl tracking-tighter text-brutal-yellow md:text-5xl">Planes</h2>
+          <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {orderedPlans.map((plan) => {
+              const isRec = plan.id === RECOMMENDED_PLAN_ID;
+              return (
+                <article class={`flex min-w-0 flex-col border-4 p-6 shadow-brutal ${isRec ? 'border-brutal-yellow bg-brutal-yellow/10' : 'border-brutal-cement bg-brutal-dark'}`}>
+                  {isRec && <span class="mb-2 text-sm tracking-widest text-brutal-yellow">RECOMENDADO</span>}
+                  <h3 class="text-2xl tracking-tight text-white">{plan.name}</h3>
+                  <p class="mt-3 text-3xl tracking-tight text-brutal-yellow">€{plan.price}<span class="text-base text-white/60"> {plan.period}</span></p>
+                  <p class="mt-4 flex-1 break-words-safe text-white/80">{plan.description}</p>
+                  <a href="/example-3#contacto" class="mt-6 w-full bg-brutal-yellow py-4 text-center text-xl tracking-tight text-brutal-black hover:bg-brutal-yellow/90">Comprar</a>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section id="contacto" class="bg-black">
-        <div class="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-20">
-          <h2 class="text-2xl font-bold uppercase tracking-tight md:text-3xl">Reserva</h2>
-          <p class="mt-2 text-neutral-400">Carrer de Sant Jeroni, 10 · 08921 Santa Coloma de Gramenet, Barcelona.</p>
-          <form class="mt-10 max-w-md space-y-4" aria-label="Contacto VFitness">
-            <input type="text" name="nombre" placeholder="Nombre" class="w-full rounded border border-neutral-700 bg-neutral-900 px-4 py-3 text-vfit-white placeholder:text-neutral-500 focus:border-vfit-gold focus:outline-none" />
-            <input type="email" name="email" placeholder="Email" class="w-full rounded border border-neutral-700 bg-neutral-900 px-4 py-3 text-vfit-white placeholder:text-neutral-500 focus:border-vfit-gold focus:outline-none" />
-            <textarea name="mensaje" rows="3" placeholder="Mensaje" class="w-full rounded border border-neutral-700 bg-neutral-900 px-4 py-3 text-vfit-white placeholder:text-neutral-500 focus:border-vfit-gold focus:outline-none" />
-            <button type="submit" class="w-full rounded bg-vfit-gold py-3 text-sm font-bold uppercase tracking-wider text-black hover:bg-vfit-gold/90">
-              Enviar
-            </button>
+      <section id="ubicacion" class="border-b-4 border-brutal-black py-14 md:py-20">
+        <div class="mx-auto max-w-6xl px-4 md:px-8">
+          <h2 class="text-4xl tracking-tighter text-brutal-yellow">Ubicación</h2>
+          <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" class="mt-6 inline-block border-4 border-brutal-yellow px-6 py-3 text-lg text-brutal-yellow hover:bg-brutal-yellow/10">Google Maps →</a>
+        </div>
+      </section>
+
+      <section id="instagram" class="border-b-4 border-brutal-black py-14 md:py-20">
+        <div class="mx-auto max-w-6xl px-4 md:px-8">
+          <h2 class="text-4xl tracking-tighter text-brutal-yellow">Instagram</h2>
+          <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer" class="mt-6 inline-block border-4 border-brutal-yellow px-6 py-3 text-lg text-brutal-yellow hover:bg-brutal-yellow/10">@vfitness_nutricion</a>
+          <div class="mt-8 grid grid-cols-3 gap-3 sm:grid-cols-4">
+            {[1,2,3,4].map((i) => (
+              <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer" class="aspect-square border-4 border-brutal-cement bg-brutal-black transition hover:border-brutal-yellow"><span class="flex h-full items-center justify-center text-white/30">[{i}]</span></a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="py-16 md:py-24">
+        <div class="mx-auto max-w-6xl px-4 md:px-8">
+          <h2 class="text-4xl tracking-tighter text-brutal-yellow">Contacto</h2>
+          <form class="mt-8 max-w-md space-y-4" aria-label="Contacto">
+            <input type="text" name="nombre" placeholder="Nombre" class="w-full border-4 border-brutal-cement bg-brutal-black px-4 py-4 text-white placeholder:text-white/40 focus:border-brutal-yellow focus:outline-none" />
+            <input type="email" name="email" placeholder="Email" class="w-full border-4 border-brutal-cement bg-brutal-black px-4 py-4 text-white placeholder:text-white/40 focus:border-brutal-yellow focus:outline-none" />
+            <textarea name="mensaje" rows="3" placeholder="Mensaje" class="w-full border-4 border-brutal-cement bg-brutal-black px-4 py-4 text-white placeholder:text-white/40 focus:border-brutal-yellow focus:outline-none" />
+            <button type="submit" class="w-full bg-brutal-yellow py-4 text-xl tracking-tight text-brutal-black hover:bg-brutal-yellow/90">Enviar</button>
           </form>
         </div>
       </section>
     </main>
 
-    <footer class="border-t border-neutral-800 py-6">
-      <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 text-xs text-neutral-500 md:flex-row md:justify-between md:px-6">
+    <footer class="border-t-4 border-brutal-black py-6">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 text-white/60 md:flex-row md:px-8">
         <p>© {new Date().getFullYear()} VFitness</p>
-        <p><a href="/" class="hover:text-vfit-gold">Ver todos los ejemplos</a></p>
+        <p><a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" class="hover:text-brutal-yellow">Mapa</a> · <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer" class="hover:text-brutal-yellow">Instagram</a> · <a href="/" class="hover:text-brutal-yellow">Ejemplos</a></p>
       </div>
     </footer>
   </div>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', () => { mobileNav.classList.toggle('hidden'); menuBtn.setAttribute('aria-expanded', mobileNav.classList.contains('hidden') ? 'false' : 'true'); menuBtn.querySelector('.menu-icon-open')?.classList.toggle('hidden', !mobileNav.classList.contains('hidden')); menuBtn.querySelector('.menu-icon-close')?.classList.toggle('hidden', mobileNav.classList.contains('hidden')); });
+      mobileNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { mobileNav.classList.add('hidden'); menuBtn?.setAttribute('aria-expanded', 'false'); menuBtn?.querySelector('.menu-icon-open')?.classList.remove('hidden'); menuBtn?.querySelector('.menu-icon-close')?.classList.add('hidden'); }));
+    }
+  </script>
 </Layout>

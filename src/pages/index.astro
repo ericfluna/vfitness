@@ -5,37 +5,51 @@ const examples = [
   {
     slug: 'example-1',
     title: 'Ejemplo 1',
-    subtitle: 'Oscuro & Dorado',
-    description: 'Landing clásica: fondo negro, acentos dorados, formulario de evaluación en el hero. Ideal para transmitir seriedad y premium.',
+    subtitle: 'The Cyber-Athlete',
+    description: 'Futurista / alto rendimiento. Negro carbón, gris metálico, cian neón o violeta eléctrico. Tipografías monoespaciadas, líneas de escáner, bordes afilados. Para entrenadores tech y público joven.',
     cta: 'Ver ejemplo 1',
   },
   {
     slug: 'example-2',
     title: 'Ejemplo 2',
-    subtitle: 'Claro & Minimal',
-    description: 'Diseño claro y limpio: fondos claros, tipografía espaciada, detalles en dorado. Sensación de calma y profesionalidad.',
+    subtitle: 'The Bio-Hacker',
+    description: 'Científico / clínico premium. Blanco o gris claro, azul cobalto o verde médico. Mucho espacio en blanco, serif elegante. Para nutricionistas de salud hormonal, longevidad o patologías.',
     cta: 'Ver ejemplo 2',
   },
   {
     slug: 'example-3',
     title: 'Ejemplo 3',
-    subtitle: 'Energía & Números',
-    description: 'Enfoque más gym: tipografía grande, métricas destacadas, bloques de contenido impactantes. Para audiencia fitness activa.',
+    subtitle: 'The Brutalist Gritty',
+    description: 'Raw / cemento y sudor. Gris cemento, negro, amarillo industrial. Texturas tipo hormigón, tipografía enorme bold. Para fuerza, powerlifting o CrossFit de alta intensidad.',
     cta: 'Ver ejemplo 3',
   },
   {
     slug: 'example-4',
     title: 'Ejemplo 4',
-    subtitle: 'Editorial & Asimétrico',
-    description: 'Estilo revista: layout asimétrico, secciones con mucho aire, sensación editorial. Diferente al resto de competencia.',
+    subtitle: 'The Wellness Zen',
+    description: 'Orgánico / equilibrio vital. Tonos tierra, beige, verde oliva, crema. Formas suaves, tipografía redondeada. Para coaches de nutrición integral, yoga y pérdida de peso sostenible.',
     cta: 'Ver ejemplo 4',
+  },
+  {
+    slug: 'example-5',
+    title: 'Ejemplo 5',
+    subtitle: 'The Luxury Stealth',
+    description: 'Exclusividad / boutique. Azul marino, verde bosque o borgoña, detalles oro o champagne. Minimalismo extremo, serif fina. Para asesorías alto ticket y entrenadores de CEOs.',
+    cta: 'Ver ejemplo 5',
+  },
+  {
+    slug: 'example-6',
+    title: 'Ejemplo 6',
+    subtitle: 'The Kinetic Energy',
+    description: 'Dinámico / urbano. Rojo y azul eléctrico, sensación de movimiento. Textos inclinados, collage, estilo Nike/Adidas. Para deportes de equipo y fitness grupal.',
+    cta: 'Ver ejemplo 6',
   },
 ];
 ---
 
 <Layout
   title="VFitness · Webs de prueba para el entrenador"
-  description="Cuatro ejemplos de landing para VFitness. Elige la dirección visual que más encaje con tu marca."
+  description="Seis ejemplos de landing para VFitness. Elige la dirección visual que más encaje con tu marca."
 >
   <div class="min-h-screen bg-black text-vfit-white">
     <header class="border-b border-neutral-800 bg-black/90 backdrop-blur">
@@ -54,18 +68,18 @@ const examples = [
         </h1>
         <p class="mt-4 max-w-2xl text-sm leading-relaxed text-neutral-300 md:text-base">
           Hola. Esta es una <strong class="text-neutral-200">página de prueba</strong> pensada para ti como entrenador y nutricionista.
-          Aquí no se muestra una única web definitiva, sino <strong class="text-vfit-gold">cuatro ejemplos distintos</strong> de cómo podría verse la landing de VFitness.
+          Aquí no se muestra una única web definitiva, sino <strong class="text-vfit-gold">seis ejemplos distintos</strong> de cómo podría verse la landing de VFitness.
         </p>
         <p class="mt-3 max-w-2xl text-sm leading-relaxed text-neutral-400">
-          Debajo encontrarás <strong class="text-neutral-300">4 tarjetas</strong>. Cada una lleva a un diseño diferente (oscuro, claro, más gym, más editorial).
+          Debajo encontrarás <strong class="text-neutral-300">6 tarjetas</strong>. Cada una lleva a un diseño diferente (oscuro, claro, más gym, más editorial).
           Navega entre ellos, compara y anota qué te gusta de cada uno: estructura, tono, colores o secciones. Con eso podremos definir juntos la web final.
         </p>
         <p class="mt-2 text-xs text-neutral-500">
-          Todos usan la misma paleta (negro, blanco, dorado) y la ubicación en Santa Coloma de Gramenet. Solo cambia el estilo visual y la disposición del contenido.
+          Cada ejemplo usa una paleta y un tono distintos (elite, tech, lifestyle, app). Todos mantienen la ubicación en Santa Coloma de Gramenet. Navega, compara y elige qué dirección encaja con tu marca.
         </p>
       </section>
 
-      <section class="grid gap-6 sm:grid-cols-2" aria-label="Ejemplos de web VFitness">
+      <section class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" aria-label="Ejemplos de web VFitness">
         {examples.map((ex) => (
           <a
             href={`/${ex.slug}`}

@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE, METHOD, PLANS, RECOMMENDED_PLAN_ID } from '../data/vfitness';
+const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -1 : b.id === RECOMMENDED_PLAN_ID ? 1 : 0));
+---
+
+<Layout title="VFitness | Kinetic · Energía y Movimiento" description="Método VFitness. Preparación física y equipo. Planes online.">
+  <div class="min-h-screen bg-kinetic-white font-sans text-kinetic-dark antialiased">
+    <header class="sticky top-0 z-50 border-b-4 border-kinetic-red bg-kinetic-white transition-all" id="main-header">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-4 md:px-8">
+        <a href="/example-6" class="text-2xl font-black tracking-tight text-kinetic-red">VFITNESS</a>
+        <nav class="hidden gap-8 text-sm font-bold text-kinetic-dark/80 md:flex">
+          <a href="/example-6#metodo" class="hover:text-kinetic-blue">Método</a>
+          <a href="/example-6#planes" class="hover:text-kinetic-blue">Planes</a>
+          <a href="/example-6#ubicacion" class="hover:text-kinetic-blue">Ubicación</a>
+          <a href="/example-6#contacto" class="hover:text-kinetic-blue">Contacto</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="/example-6#planes" class="bg-kinetic-red px-6 py-3 text-sm font-bold text-white transition hover:bg-kinetic-red/90 md:inline-flex">EMPEZAR</a>
+          <button type="button" class="flex h-10 w-10 shrink-0 items-center justify-center border-2 border-kinetic-red text-kinetic-red md:hidden" id="menu-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menú">
+            <span class="menu-icon-open">☰</span>
+            <span class="menu-icon-close hidden">✕</span>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-nav-panel hidden border-b-4 border-kinetic-red bg-kinetic-white px-4 py-4 md:hidden" id="mobile-nav">
+        <nav class="flex flex-col gap-2 text-sm font-bold">
+          <a href="/example-6#metodo" class="py-3 text-kinetic-dark/80 hover:text-kinetic-blue">Método</a>
+          <a href="/example-6#planes" class="py-3 text-kinetic-dark/80 hover:text-kinetic-blue">Planes</a>
+          <a href="/example-6#ubicacion" class="py-3 text-kinetic-dark/80 hover:text-kinetic-blue">Ubicación</a>
+          <a href="/example-6#contacto" class="py-3 text-kinetic-dark/80 hover:text-kinetic-blue">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="relative min-h-[100vh] overflow-hidden border-b-4 border-kinetic-blue" id="hero">
+        <div class="absolute inset-0 bg-kinetic-white" />
+        <div class="absolute -right-20 top-1/4 h-72 w-72 rotate-12 bg-kinetic-red/10" aria-hidden="true" />
+        <div class="absolute bottom-1/4 -left-20 h-64 w-64 -rotate-12 bg-kinetic-blue/10" aria-hidden="true" />
+        <div class="relative z-10 flex min-h-[100vh] flex-col justify-center px-4 py-20 md:px-8">
+          <div class="mx-auto w-full max-w-4xl">
+            <p class="text-sm font-bold uppercase tracking-widest text-kinetic-red">Energía · Movimiento</p>
+            <h1 class="mt-4 text-4xl font-black leading-tight tracking-tight text-kinetic-dark sm:text-5xl md:text-6xl lg:text-7xl">
+              <span class="italic text-kinetic-red">Acelera.</span><br />
+              <span class="text-kinetic-blue">Transforma.</span>
+            </h1>
+            <p class="mt-6 max-w-xl text-base font-medium leading-relaxed text-kinetic-dark/80">
+              Método simple y muy efectivo. Calorías, macros y plan de entrenamiento. Más de 7.000 cambios.
+            </p>
+            <a href="/example-6#planes" class="mt-10 inline-block bg-kinetic-blue px-8 py-4 text-sm font-bold text-white transition hover:bg-kinetic-blue/90">VER PLANES</a>
+            <div class="mt-20 flex flex-wrap gap-12 border-t-4 border-kinetic-red/30 pt-10">
+              <div><p class="text-4xl font-black text-kinetic-red md:text-5xl">7.000+</p><p class="mt-1 text-sm font-bold uppercase text-kinetic-dark/60">CAMBIOS</p></div>
+              <div><p class="text-4xl font-black text-kinetic-blue md:text-5xl">100%</p><p class="mt-1 text-sm font-bold uppercase text-kinetic-dark/60">ONLINE</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="metodo" class="border-b-4 border-kinetic-blue bg-kinetic-white py-16 md:py-24">
+        <div class="mx-auto max-w-6xl px-4 md:px-8">
+          <h2 class="text-3xl font-black text-kinetic-dark md:text-4xl">{METHOD.title}</h2>
+          <p class="mt-2 text-lg italic text-kinetic-dark/80">{METHOD.tagline}</p>
+          <ul class="mt-10 space-y-6">
+            {METHOD.points.map((point) => (
+              <li class="flex gap-4">
+                <span class="mt-1.5 h-3 w-3 shrink-0 rounded-full bg-kinetic-red" aria-hidden="true" />
+                <span class="break-words text-base font-medium leading-relaxed text-kinetic-dark/90">{point}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-12 border-4 border-kinetic-red bg-kinetic-red/5 p-8">
+            <p class="text-3xl font-black text-kinetic-red md:text-4xl">{METHOD.stat}</p>
+            <p class="mt-2 font-medium text-kinetic-dark/80">{METHOD.statLabel}</p>
+            <a href="/example-6#planes" class="mt-6 inline-block bg-kinetic-blue px-6 py-3 text-sm font-bold text-white hover:bg-kinetic-blue/90">{METHOD.cta}</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="planes" class="border-b-4 border-kinetic-red py-16 md:py-24">
+        <div class="mx-auto max-w-6xl px-4 md:px-8">
+          <h2 class="text-3xl font-black text-kinetic-dark md:text-4xl">Planes</h2>
+          <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {orderedPlans.map((plan) => {
+              const isRec = plan.id === RECOMMENDED_PLAN_ID;
+              return (
+                <article class={`flex min-w-0 flex-col border-4 p-6 transition hover:-translate-y-1 ${isRec ? 'border-kinetic-blue bg-kinetic-blue/5' : 'border-kinetic-dark/20 bg-kinetic-white'}`}>
+                  {isRec && <span class="mb-2 text-xs font-bold uppercase tracking-wider text-kinetic-blue">Recomendado</span>}
+                  <h3 class="text-lg font-bold text-kinetic-dark">{plan.name}</h3>
+                  <p class="mt-2 text-2xl font-black text-kinetic-red">€{plan.price}<span class="text-sm font-normal text-kinetic-dark/60"> {plan.period}</span></p>
+                  <p class="mt-3 flex-1 break-words text-sm font-medium leading-relaxed text-kinetic-dark/80">{plan.description}</p>
+                  <a href="/example-6#contacto" class="mt-6 min-h-[44px] border-4 border-kinetic-red py-3 text-center text-sm font-bold text-kinetic-red transition hover:bg-kinetic-red hover:text-white">Comprar</a>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section id="ubicacion" class="border-b-4 border-kinetic-blue py-14 md:py-20">
+        <div class="mx-auto max-w-6xl px-4 md:px-8">
+          <h2 class="text-3xl font-black text-kinetic-dark">Ubicación</h2>
+          <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" class="mt-6 inline-block border-4 border-kinetic-blue px-6 py-3 text-sm font-bold text-kinetic-blue hover:bg-kinetic-blue/10">Google Maps →</a>
+        </div>
+      </section>
+
+      <section id="instagram" class="border-b-4 border-kinetic-red py-14 md:py-20">
+        <div class="mx-auto max-w-6xl px-4 md:px-8">
+          <h2 class="text-3xl font-black text-kinetic-dark">Instagram</h2>
+          <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer" class="mt-6 inline-block border-4 border-kinetic-red px-6 py-3 text-sm font-bold text-kinetic-red hover:bg-kinetic-red/10">@vfitness_nutricion</a>
+          <div class="mt-8 grid grid-cols-3 gap-3 sm:grid-cols-4">
+            {[1,2,3,4].map((i) => (
+              <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer" class="aspect-square border-4 border-kinetic-dark/20 bg-kinetic-white transition hover:border-kinetic-red hover:-rotate-1"><span class="flex h-full items-center justify-center text-sm font-bold text-kinetic-dark/40">Foto {i}</span></a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="py-16 md:py-24">
+        <div class="mx-auto max-w-6xl px-4 md:px-8">
+          <h2 class="text-3xl font-black text-kinetic-dark">Contacto</h2>
+          <form class="mt-8 max-w-md space-y-4" aria-label="Contacto">
+            <input type="text" name="nombre" placeholder="Nombre" class="w-full border-4 border-kinetic-dark/20 bg-kinetic-white px-4 py-3.5 font-medium text-kinetic-dark placeholder:text-kinetic-dark/40 focus:border-kinetic-blue focus:outline-none" />
+            <input type="email" name="email" placeholder="Email" class="w-full border-4 border-kinetic-dark/20 bg-kinetic-white px-4 py-3.5 font-medium text-kinetic-dark placeholder:text-kinetic-dark/40 focus:border-kinetic-blue focus:outline-none" />
+            <textarea name="mensaje" rows="3" placeholder="Mensaje" class="w-full border-4 border-kinetic-dark/20 bg-kinetic-white px-4 py-3.5 font-medium text-kinetic-dark placeholder:text-kinetic-dark/40 focus:border-kinetic-blue focus:outline-none" />
+            <button type="submit" class="w-full bg-kinetic-red py-4 text-sm font-bold text-white hover:bg-kinetic-red/90">Enviar</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t-4 border-kinetic-red py-6">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 text-sm font-medium text-kinetic-dark/60 md:flex-row md:px-8">
+        <p>© {new Date().getFullYear()} VFitness</p>
+        <p><a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" class="hover:text-kinetic-red">Mapa</a> · <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer" class="hover:text-kinetic-red">Instagram</a> · <a href="/" class="hover:text-kinetic-red">Ejemplos</a></p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', () => { mobileNav.classList.toggle('hidden'); menuBtn.setAttribute('aria-expanded', mobileNav.classList.contains('hidden') ? 'false' : 'true'); menuBtn.querySelector('.menu-icon-open')?.classList.toggle('hidden', !mobileNav.classList.contains('hidden')); menuBtn.querySelector('.menu-icon-close')?.classList.toggle('hidden', mobileNav.classList.contains('hidden')); });
+      mobileNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { mobileNav.classList.add('hidden'); menuBtn?.setAttribute('aria-expanded', 'false'); menuBtn?.querySelector('.menu-icon-open')?.classList.remove('hidden'); menuBtn?.querySelector('.menu-icon-close')?.classList.add('hidden'); }));
+    }
+  </script>
+</Layout>

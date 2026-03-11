@@ -2,8 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   @apply bg-black text-vfit-white antialiased;
+  overflow-x: hidden;
+  min-width: 0;
+}
+
+/* Evitar overflow de texto largo en listas y párrafos */
+p, li, .break-words-safe {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 

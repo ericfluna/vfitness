@@ -1,157 +1,148 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { SITE, METHOD, PLANS, RECOMMENDED_PLAN_ID } from '../data/vfitness';
+const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -1 : b.id === RECOMMENDED_PLAN_ID ? 1 : 0));
 ---
 
-<Layout
-  title="VFitness Ejemplo 4 | Nutrición y Entrenamiento · Estilo editorial"
-  description="Landing editorial para VFitness. Nutricionista y entrenador personal en Santa Coloma de Gramenet."
->
-  <div class="min-h-screen bg-neutral-950 text-vfit-white">
-    <header class="sticky top-0 z-40 border-b border-neutral-800/60 bg-neutral-950/90 backdrop-blur">
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-8">
-        <p class="text-[11px] font-medium tracking-[0.28em] text-vfit-gold">V-FITNESS</p>
-        <nav class="hidden gap-10 text-[11px] uppercase tracking-[0.2em] text-neutral-400 md:flex">
-          <a href="/example-4#metodo" class="hover:text-vfit-gold">Método</a>
-          <a href="/example-4#planes" class="hover:text-vfit-gold">Planes</a>
-          <a href="/example-4#contacto" class="hover:text-vfit-gold">Contacto</a>
+<Layout title="VFitness | Wellness Zen · Equilibrio Vital" description="Método VFitness. Nutrición integral y bienestar. Planes online.">
+  <div class="min-h-screen bg-zen-cream font-zen text-zen-earth antialiased">
+    <header class="sticky top-0 z-50 border-b border-zen-beige bg-zen-cream/95 backdrop-blur transition-all" id="main-header">
+      <div class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 py-4 md:px-8">
+        <a href="/example-4" class="text-xl font-semibold text-zen-earth">VFitness</a>
+        <nav class="hidden gap-8 text-sm text-zen-earth/80 md:flex">
+          <a href="/example-4#metodo" class="hover:text-zen-olive">Método</a>
+          <a href="/example-4#planes" class="hover:text-zen-olive">Planes</a>
+          <a href="/example-4#ubicacion" class="hover:text-zen-olive">Ubicación</a>
+          <a href="/example-4#contacto" class="hover:text-zen-olive">Contacto</a>
         </nav>
-        <div class="flex items-center gap-4">
-          <a href="/" class="text-[10px] uppercase tracking-widest text-neutral-500 hover:text-vfit-gold">Ejemplos</a>
-          <a href="/example-4#contacto" class="border-b border-vfit-gold pb-1 text-[11px] font-medium uppercase tracking-widest text-vfit-gold hover:border-vfit-gold/70">
-            Contactar
-          </a>
+        <div class="flex items-center gap-3">
+          <a href="/example-4#planes" class="rounded-full bg-zen-olive px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-zen-olive/90 md:inline-flex">Empezar</a>
+          <button type="button" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-zen-earth/30 text-zen-earth md:hidden" id="menu-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menú">
+            <span class="menu-icon-open">☰</span>
+            <span class="menu-icon-close hidden">✕</span>
+          </button>
         </div>
+      </div>
+      <div class="mobile-nav-panel hidden border-t border-zen-beige bg-zen-cream px-4 py-4 md:hidden" id="mobile-nav">
+        <nav class="flex flex-col gap-3 text-sm">
+          <a href="/example-4#metodo" class="py-2.5 text-zen-earth/80 hover:text-zen-olive">Método</a>
+          <a href="/example-4#planes" class="py-2.5 text-zen-earth/80 hover:text-zen-olive">Planes</a>
+          <a href="/example-4#ubicacion" class="py-2.5 text-zen-earth/80 hover:text-zen-olive">Ubicación</a>
+          <a href="/example-4#contacto" class="py-2.5 text-zen-earth/80 hover:text-zen-olive">Contacto</a>
+        </nav>
       </div>
     </header>
 
     <main>
-      <section class="mx-auto max-w-6xl px-4 py-16 md:px-8 md:py-24">
-        <div class="grid gap-12 md:grid-cols-[1fr_1.2fr] md:gap-20 md:items-center">
-          <div>
-            <p class="text-[10px] font-semibold uppercase tracking-[0.3em] text-neutral-500">Entrenador personal & nutricionista</p>
-            <h1 class="mt-6 text-3xl font-semibold leading-[1.25] tracking-tight text-vfit-white sm:text-4xl md:text-5xl">
-              Resultados que se mantienen.
-              <span class="block mt-2 text-vfit-gold">Sin obsesiones.</span>
+      <section class="relative min-h-[100vh] overflow-hidden" id="hero">
+        <div class="absolute inset-0 bg-zen-cream" />
+        <div class="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-zen-olive/10 blur-3xl" aria-hidden="true" />
+        <div class="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-zen-beige/80 blur-2xl" aria-hidden="true" />
+        <div class="relative z-10 flex min-h-[100vh] flex-col justify-center px-4 py-24 md:px-8">
+          <div class="mx-auto w-full max-w-2xl">
+            <p class="text-sm font-semibold uppercase tracking-widest text-zen-olive">Bienestar integral</p>
+            <h1 class="mt-6 font-zen text-4xl font-bold leading-tight text-zen-earth sm:text-5xl md:text-6xl">
+              Tu cuerpo en equilibrio.<br />
+              <span class="text-zen-olive">Sin obsesiones.</span>
             </h1>
-            <p class="mt-8 max-w-md text-sm leading-relaxed text-neutral-400">
-              En VFitness no vendemos transformaciones de 30 días. Trabajamos contigo para que aprendas a comer, entrenar y recuperarte de forma sostenible. Desde Santa Coloma de Gramenet, también online.
+            <p class="mt-8 text-base leading-relaxed text-zen-earth/80">
+              Método simple y muy efectivo: metabolismo basal, macronutrientes y plan de entrenamiento. Más de 7.000 cambios. Sostenible.
             </p>
-            <a
-              href="/example-4#contacto"
-              class="mt-10 inline-block border border-vfit-gold px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-vfit-gold transition hover:bg-vfit-gold hover:text-black"
-            >
-              Primera consulta
-            </a>
-          </div>
-          <div class="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-8 md:p-10">
-            <h2 class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">En números</h2>
-            <dl class="mt-6 space-y-6">
-              <div class="flex justify-between border-b border-neutral-800 pb-4">
-                <dt class="text-sm text-neutral-400">Años de experiencia</dt>
-                <dd class="text-lg font-semibold text-vfit-gold">+7</dd>
-              </div>
-              <div class="flex justify-between border-b border-neutral-800 pb-4">
-                <dt class="text-sm text-neutral-400">Personas acompañadas</dt>
-                <dd class="text-lg font-semibold text-vfit-gold">+150</dd>
-              </div>
-              <div class="flex justify-between">
-                <dt class="text-sm text-neutral-400">Ubicación</dt>
-                <dd class="text-right text-sm font-medium text-vfit-white">Santa Coloma de Gramenet</dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </section>
-
-      <section id="metodo" class="border-y border-neutral-800 bg-black/40">
-        <div class="mx-auto max-w-6xl px-4 py-20 md:px-8 md:py-24">
-          <p class="text-[10px] font-semibold uppercase tracking-[0.28em] text-vfit-gold">El método</p>
-          <h2 class="mt-4 text-2xl font-semibold tracking-tight md:text-3xl">Tres pilares</h2>
-          <div class="mt-12 grid gap-12 md:grid-cols-3">
-            <article class="max-w-sm">
-              <p class="text-4xl font-light text-vfit-gold">01</p>
-              <h3 class="mt-4 text-lg font-semibold text-vfit-white">Nutrición</h3>
-              <p class="mt-2 text-sm leading-relaxed text-neutral-400">Planes realistas, adaptados a tu vida. Sin listas de prohibidos. Educación para decidir por ti mismo.</p>
-            </article>
-            <article class="max-w-sm">
-              <p class="text-4xl font-light text-vfit-gold">02</p>
-              <h3 class="mt-4 text-lg font-semibold text-vfit-white">Entrenamiento</h3>
-              <p class="mt-2 text-sm leading-relaxed text-neutral-400">Fuerza y progresión. Gimnasio o casa. Rutinas claras y revisión técnica cuando haga falta.</p>
-            </article>
-            <article class="max-w-sm">
-              <p class="text-4xl font-light text-vfit-gold">03</p>
-              <h3 class="mt-4 text-lg font-semibold text-vfit-white">Seguimiento</h3>
-              <p class="mt-2 text-sm leading-relaxed text-neutral-400">Revisiones periódicas y contacto directo. Constancia y ajustes según tu evolución.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="planes" class="border-b border-neutral-800">
-        <div class="mx-auto max-w-6xl px-4 py-20 md:px-8 md:py-24">
-          <div class="grid gap-12 md:grid-cols-[0.9fr_1fr] md:gap-16">
-            <div>
-              <p class="text-[10px] font-semibold uppercase tracking-[0.28em] text-vfit-gold">Planes</p>
-              <h2 class="mt-4 text-2xl font-semibold tracking-tight md:text-3xl">Desde cero hasta rendimiento</h2>
-              <p class="mt-4 text-sm leading-relaxed text-neutral-400">
-                Todos incluyen nutrición, entrenamiento y seguimiento. El plan se elige según tu objetivo y nivel actual.
-              </p>
-            </div>
-            <div class="space-y-6">
-              <article class="flex gap-6 border-b border-neutral-800 pb-6">
-                <span class="text-2xl font-light text-vfit-gold">1</span>
-                <div>
-                  <h3 class="font-semibold text-vfit-white">Desde Cero</h3>
-                  <p class="mt-1 text-sm text-neutral-400">Para empezar o retomar. 3 días/semana y guía de hábitos.</p>
-                </div>
-              </article>
-              <article class="flex gap-6 border-b border-neutral-800 pb-6">
-                <span class="text-2xl font-light text-vfit-gold">2</span>
-                <div>
-                  <h3 class="font-semibold text-vfit-white">Recomposición & Definición</h3>
-                  <p class="mt-1 text-sm text-neutral-400">Perder grasa y ganar músculo. 3–5 días. Ajustes cada 2 semanas.</p>
-                </div>
-              </article>
-              <article class="flex gap-6">
-                <span class="text-2xl font-light text-vfit-gold">3</span>
-                <div>
-                  <h3 class="font-semibold text-vfit-white">Avanzado</h3>
-                  <p class="mt-1 text-sm text-neutral-400">Rendimiento y periodización. Para quien ya entrena en serio.</p>
-                </div>
-              </article>
+            <a href="/example-4#planes" class="mt-10 inline-flex rounded-full bg-zen-olive px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-zen-olive/90">Descubrir planes</a>
+            <div class="mt-20 flex flex-wrap gap-12 border-t border-zen-beige pt-10">
+              <div><p class="text-3xl font-bold text-zen-olive md:text-4xl">7.000+</p><p class="mt-1 text-sm text-zen-earth/60">Transformaciones</p></div>
+              <div><p class="text-3xl font-bold text-zen-olive md:text-4xl">100%</p><p class="mt-1 text-sm text-zen-earth/60">Online</p></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="contacto" class="bg-neutral-950">
-        <div class="mx-auto max-w-6xl px-4 py-20 md:px-8 md:py-24">
-          <div class="grid gap-12 md:grid-cols-2 md:gap-20">
-            <div>
-              <p class="text-[10px] font-semibold uppercase tracking-[0.28em] text-vfit-gold">Contacto</p>
-              <h2 class="mt-4 text-2xl font-semibold tracking-tight md:text-3xl">Reserva tu primera toma de contacto</h2>
-              <p class="mt-4 text-sm text-neutral-400">
-                Carrer de Sant Jeroni, 10 · 08921 Santa Coloma de Gramenet, Barcelona. Sesiones presenciales y online.
-              </p>
-            </div>
-            <form class="space-y-4" aria-label="Contacto VFitness">
-              <input type="text" name="nombre" placeholder="Nombre" class="w-full border-b border-neutral-700 bg-transparent py-3 text-vfit-white placeholder:text-neutral-500 focus:border-vfit-gold focus:outline-none" />
-              <input type="email" name="email" placeholder="Email" class="w-full border-b border-neutral-700 bg-transparent py-3 text-vfit-white placeholder:text-neutral-500 focus:border-vfit-gold focus:outline-none" />
-              <textarea name="mensaje" rows="3" placeholder="Cuéntame tu objetivo" class="w-full border-b border-neutral-700 bg-transparent py-3 text-vfit-white placeholder:text-neutral-500 focus:border-vfit-gold focus:outline-none" />
-              <button type="submit" class="mt-4 border border-vfit-gold px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-vfit-gold transition hover:bg-vfit-gold hover:text-black">
-                Enviar
-              </button>
-            </form>
+      <section id="metodo" class="border-t border-zen-beige bg-zen-cream py-16 md:py-24">
+        <div class="mx-auto max-w-5xl px-4 md:px-8">
+          <h2 class="font-zen text-2xl font-bold text-zen-earth md:text-3xl">{METHOD.title}</h2>
+          <p class="mt-2 text-lg text-zen-earth/80">{METHOD.tagline}</p>
+          <ul class="mt-10 space-y-6">
+            {METHOD.points.map((point) => (
+              <li class="flex gap-4">
+                <span class="mt-1.5 h-3 w-3 shrink-0 rounded-full bg-zen-olive/70" aria-hidden="true" />
+                <span class="break-words-safe text-base leading-relaxed text-zen-earth/90">{point}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-12 rounded-3xl bg-zen-beige/50 p-8">
+            <p class="text-3xl font-bold text-zen-olive md:text-4xl">{METHOD.stat}</p>
+            <p class="mt-2 text-zen-earth/80">{METHOD.statLabel}</p>
+            <a href="/example-4#planes" class="mt-6 inline-flex rounded-full bg-zen-olive px-6 py-3 text-sm font-semibold text-white hover:bg-zen-olive/90">{METHOD.cta}</a>
           </div>
+        </div>
+      </section>
+
+      <section id="planes" class="border-t border-zen-beige py-16 md:py-24">
+        <div class="mx-auto max-w-5xl px-4 md:px-8">
+          <h2 class="font-zen text-2xl font-bold text-zen-earth md:text-3xl">Planes</h2>
+          <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {orderedPlans.map((plan) => {
+              const isRec = plan.id === RECOMMENDED_PLAN_ID;
+              return (
+                <article class={`flex min-w-0 flex-col rounded-3xl border-2 p-6 ${isRec ? 'border-zen-olive bg-zen-olive/10' : 'border-zen-beige bg-white'}`}>
+                  {isRec && <span class="mb-2 text-xs font-semibold uppercase tracking-wider text-zen-olive">Recomendado</span>}
+                  <h3 class="font-zen text-lg font-bold text-zen-earth">{plan.name}</h3>
+                  <p class="mt-2 text-2xl font-bold text-zen-olive">€{plan.price}<span class="text-sm font-normal text-zen-earth/60"> {plan.period}</span></p>
+                  <p class="mt-3 flex-1 break-words-safe text-sm leading-relaxed text-zen-earth/80">{plan.description}</p>
+                  <a href="/example-4#contacto" class="mt-6 min-h-[44px] rounded-full bg-zen-olive py-3 text-center text-sm font-semibold text-white hover:bg-zen-olive/90">Comprar</a>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section id="ubicacion" class="border-t border-zen-beige py-14 md:py-20">
+        <div class="mx-auto max-w-5xl px-4 md:px-8">
+          <h2 class="font-zen text-2xl font-bold text-zen-earth">Dónde estamos</h2>
+          <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex rounded-full border-2 border-zen-olive px-5 py-2.5 text-sm font-semibold text-zen-olive hover:bg-zen-olive/10">Ver en Google Maps →</a>
+        </div>
+      </section>
+
+      <section id="instagram" class="border-t border-zen-beige py-14 md:py-20">
+        <div class="mx-auto max-w-5xl px-4 md:px-8">
+          <h2 class="font-zen text-2xl font-bold text-zen-earth">Síguenos</h2>
+          <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex rounded-full border-2 border-zen-olive px-5 py-2.5 text-sm font-semibold text-zen-olive hover:bg-zen-olive/10">@vfitness_nutricion</a>
+          <div class="mt-8 grid grid-cols-3 gap-3 sm:grid-cols-4">
+            {[1,2,3,4].map((i) => (
+              <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer" class="aspect-square overflow-hidden rounded-2xl border-2 border-zen-beige bg-white transition hover:border-zen-olive/50"><span class="flex h-full items-center justify-center text-sm text-zen-earth/40">Foto {i}</span></a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="py-16 md:py-24">
+        <div class="mx-auto max-w-5xl px-4 md:px-8">
+          <h2 class="font-zen text-2xl font-bold text-zen-earth">Contacto</h2>
+          <form class="mt-8 max-w-md space-y-4" aria-label="Contacto">
+            <input type="text" name="nombre" placeholder="Nombre" class="w-full rounded-2xl border-2 border-zen-beige bg-white px-4 py-3.5 text-zen-earth placeholder:text-zen-earth/40 focus:border-zen-olive focus:outline-none" />
+            <input type="email" name="email" placeholder="Email" class="w-full rounded-2xl border-2 border-zen-beige bg-white px-4 py-3.5 text-zen-earth placeholder:text-zen-earth/40 focus:border-zen-olive focus:outline-none" />
+            <textarea name="mensaje" rows="3" placeholder="Mensaje" class="w-full rounded-2xl border-2 border-zen-beige bg-white px-4 py-3.5 text-zen-earth placeholder:text-zen-earth/40 focus:border-zen-olive focus:outline-none" />
+            <button type="submit" class="w-full rounded-full bg-zen-olive py-3.5 text-sm font-semibold text-white hover:bg-zen-olive/90">Enviar</button>
+          </form>
         </div>
       </section>
     </main>
 
-    <footer class="border-t border-neutral-800 py-8">
-      <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 text-[11px] text-neutral-500 md:flex-row md:justify-between md:px-8">
-        <p>© {new Date().getFullYear()} VFitness · Nutrición & Entrenamiento Personal</p>
-        <p><a href="/" class="tracking-widest hover:text-vfit-gold">Ver todos los ejemplos</a></p>
+    <footer class="border-t border-zen-beige py-6">
+      <div class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-2 px-4 text-sm text-zen-earth/60 md:flex-row md:px-8">
+        <p>© {new Date().getFullYear()} VFitness</p>
+        <p><a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" class="hover:text-zen-olive">Mapa</a> · <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer" class="hover:text-zen-olive">Instagram</a> · <a href="/" class="hover:text-zen-olive">Ejemplos</a></p>
       </div>
     </footer>
   </div>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', () => { mobileNav.classList.toggle('hidden'); menuBtn.setAttribute('aria-expanded', mobileNav.classList.contains('hidden') ? 'false' : 'true'); menuBtn.querySelector('.menu-icon-open')?.classList.toggle('hidden', !mobileNav.classList.contains('hidden')); menuBtn.querySelector('.menu-icon-close')?.classList.toggle('hidden', mobileNav.classList.contains('hidden')); });
+      mobileNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { mobileNav.classList.add('hidden'); menuBtn?.setAttribute('aria-expanded', 'false'); menuBtn?.querySelector('.menu-icon-open')?.classList.remove('hidden'); menuBtn?.querySelector('.menu-icon-close')?.classList.add('hidden'); }));
+    }
+  </script>
 </Layout>
