@@ -4,7 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        vfit: { black: '#050608', gold: '#D4AF37', white: '#F9FAFB' },
+        // Paleta principal Vfitness (fondo, acento, texto)
+        vfit: {
+          black: '#0C0D0D',
+          red: '#A10D0B',
+          white: '#FDFFFC',
+        },
         // 1. Cyber-Athlete
         cyber: {
           black: '#0c0c0e',
