@@ -62,7 +62,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        sans: ['"Google Sans"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         mono: ['Roboto Mono', 'monospace'],
         serif: ['Playfair Display', 'Georgia', 'serif'],
         luxury: ['Cormorant Garamond', 'Georgia', 'serif'],

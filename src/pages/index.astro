@@ -1,191 +1,685 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { SITE, METHOD, PLANS, RECOMMENDED_PLAN_ID } from '../data/vfitness';
-import heroLoop from '../assets/hero-loop.mp4';
-const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -1 : b.id === RECOMMENDED_PLAN_ID ? 1 : 0));
+import Layout from "../layouts/Layout.astro";
+import { SITE, METHOD, PLANS, RECOMMENDED_PLAN_ID } from "../data/vfitness";
+import heroLoop from "../assets/hero-loop.mp4";
+import img1 from "../assets/img1.jpg";
+import img2 from "../assets/img2.jpg";
+import img3 from "../assets/img3.jpg";
+import trainer1 from "../assets/trainer1.png";
+import trainer2 from "../assets/trainer2.png";
+import trainer3 from "../assets/trainer3.png";
+const orderedPlans = [...PLANS].sort((a, b) =>
+  a.id === RECOMMENDED_PLAN_ID ? -1 : b.id === RECOMMENDED_PLAN_ID ? 1 : 0,
+);
 ---
 
-<Layout title="VFitness | Cyber-Athlete · Alto Rendimiento" description="Método VFitness. Tecnología y rendimiento. Dietas y entrenos personalizados online.">
-  <div class="min-h-screen bg-vfit-black font-mono text-vfit-white antialiased">
-    <header class="fixed top-0 z-50 w-full bg-vfit-black/90 backdrop-blur transition-all" id="main-header">
-      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-3 md:px-8">
-        <a href="/" class="text-sm font-bold tracking-widest text-vfit-white">VFITNESS</a>
-        <nav class="hidden gap-6 text-xs uppercase tracking-wider text-vfit-white/70 md:flex">
+<Layout
+  title="VFitness | Cyber-Athlete · Alto Rendimiento"
+  description="Método V. Tecnología y rendimiento. Dietas y entrenos personalizados online."
+>
+  <div class="min-h-screen bg-vfit-black font-sans text-vfit-white antialiased">
+    <header
+      class="fixed top-0 z-50 w-full bg-vfit-black/40 backdrop-blur transition-all"
+      id="main-header"
+    >
+      <div
+        class="mx-auto flex w-full max-w-6xl items-center px-4 py-3 md:px-8"
+      >
+        <div class="flex-1">
+          <a
+            href="/"
+            class="text-sm font-bold tracking-widest text-vfit-white"
+          >
+            VFITNESS
+          </a>
+        </div>
+        <nav
+          class="hidden flex-1 justify-center gap-6 text-xs uppercase tracking-wider text-vfit-white/70 md:flex"
+        >
           <a href="#metodo">Método</a>
           <a href="#planes">Planes</a>
-          <a href="#ubicacion">Ubicación</a>
+
           <a href="#contacto">Contacto</a>
         </nav>
-        <div class="flex items-center gap-3">
-          <a href="#planes" class="rounded border border-vfit-red px-3 py-2 text-xs font-medium text-vfit-white transition hover:bg-vfit-red hover:text-vfit-white md:inline-flex">INICIAR</a>
-          <button type="button" class="flex h-10 w-10 shrink-0 items-center justify-center border border-vfit-red/40 text-vfit-white md:hidden" id="menu-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menú">
+        <div class="flex flex-1 items-center justify-end gap-3">
+          <a
+            href="#planes"
+            class="hidden rounded border border-vfit-red px-3 py-2 text-xs font-medium text-vfit-white transition hover:bg-vfit-red hover:text-vfit-white md:inline-flex"
+          >
+            INICIAR
+          </a>
+          <button
+            type="button"
+            class="flex h-10 w-10 shrink-0 items-center justify-center border border-vfit-red/40 text-vfit-white md:hidden"
+            id="menu-btn"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+            aria-label="Menú"
+          >
             <span class="menu-icon-open">≡</span>
             <span class="menu-icon-close hidden">×</span>
           </button>
         </div>
       </div>
-      <div class="mobile-nav-panel hidden border-t border-vfit-red/30 bg-vfit-black px-4 py-4 md:hidden" id="mobile-nav">
+      <div
+        class="mobile-nav-panel hidden border-t border-vfit-red/30 bg-vfit-black px-4 py-4 md:hidden"
+        id="mobile-nav"
+      >
         <nav class="flex flex-col gap-2 text-xs uppercase tracking-wider">
-          <a href="#metodo" class="py-2 text-vfit-white/70 hover:text-vfit-white">Método</a>
-          <a href="#planes" class="py-2 text-vfit-white/70 hover:text-vfit-white">Planes</a>
-          <a href="#ubicacion" class="py-2 text-vfit-white/70 hover:text-vfit-white">Ubicación</a>
-          <a href="#contacto" class="py-2 text-vfit-white/70 hover:text-vfit-white">Contacto</a>
+          <a
+            href="#metodo"
+            class="py-2 text-vfit-white/70 hover:text-vfit-white">Método</a
+          >
+          <a
+            href="#planes"
+            class="py-2 text-vfit-white/70 hover:text-vfit-white">Planes</a
+          >
+         
+          <a
+            href="#contacto"
+            class="py-2 text-vfit-white/70 hover:text-vfit-white">Contacto</a
+          >
         </nav>
       </div>
     </header>
 
     <main>
-      <section class="relative min-h-[80vh] overflow-hidden border-b border-vfit-red/20" id="hero">
-        <div class="absolute inset-0 z-0 md:p-6">
-          <div class="h-full w-full mt-10 overflow-hidden md:rounded-3xl">
-            <video id="hero-video" class="h-full w-full object-cover" autoplay loop muted playsinline aria-hidden="true" src={typeof heroLoop === 'string' ? heroLoop : heroLoop.src} />
-            <div class="absolute inset-0 bg-vfit-black/75" aria-hidden="true" />
-            <div class="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(50,0,0,0.16)_50%,transparent_100%)] bg-[length:100%_4px]" style="animation: scan 4s linear infinite;" aria-hidden="true" />
+      <section class="relative min-h-[100vh]  overflow-hidden" id="hero">
+        <div class="absolute inset-0 z-0 ">
+          <div
+            class="relative h-full w-full overflow-hidden flex justify-center items-center"
+          >
+            <video
+              id="hero-video"
+              class="h-full w-full object-cover"
+              autoplay
+              loop
+              muted
+              playsinline
+              aria-hidden="true"
+              src={heroLoop}></video>
+            <div
+              class="pointer-events-none absolute inset-0 bg-vfit-black/75"
+              aria-hidden="true"
+            >
+            </div>
+            <div
+              class="pointer-events-none absolute inset-0  bg-[linear-gradient(180deg,transparent_0%,rgba(50,0,0,0.16)_50%,transparent_100%)] bg-[length:100%_4px]"
+              style="animation: scan 4s linear infinite;"
+              aria-hidden="true"
+            >
+            </div>
           </div>
         </div>
-        <div class="absolute left-0 top-0 h-full w-px bg-vfit-red/30" aria-hidden="true" />
-        <div class="absolute right-0 top-0 h-full w-px bg-vfit-red/30" aria-hidden="true" />
-        <div class="relative z-[2] flex min-h-[100vh] flex-col justify-center px-4 py-20 md:px-8">
+        <div
+          class="absolute left-0 top-0 h-full w-px bg-vfit-red/30"
+          aria-hidden="true"
+        >
+        </div>
+        <div
+          class="absolute right-0 top-0 h-full w-px bg-vfit-red/30"
+          aria-hidden="true"
+        >
+        </div>
+        <div
+          class="relative z-[2] flex min-h-[100vh] flex-col justify-center px-4 py-20 md:px-8"
+        >
           <div class="mx-auto w-full max-w-4xl">
-            <p id="hero-tagline" class="text-[12px] uppercase tracking-[0.5em] text-vfit-red"></p>
-            <h1 class="mt-4 font-mono text-3xl font-bold tracking-tight text-vfit-white sm:text-4xl md:text-5xl lg:text-6xl">
-              <span class="block text-vfit-white ">RENDIMIENTO</span>
-              <span class="block text-vfit-red ">OPTIMIZADO</span>
+            <p
+              id="hero-tagline"
+              class="text-[12px] uppercase tracking-[0.5em] text-vfit-red"
+            >
+            </p>
+            <h1
+              class="mt-4 text-3xl font-bold tracking-tight text-vfit-white sm:text-4xl md:text-5xl lg:text-6xl"
+            >
+              <span class="block text-vfit-white">RENDIMIENTO</span>
+              <span class="block text-vfit-red">OPTIMIZADO</span>
             </h1>
             <p class="mt-6 max-w-lg text-sm leading-relaxed text-vfit-white/80">
-              Método basado en datos. Calorías, macros y plan de entrenamiento específico. Más de 7.000 transformaciones.
+              Método basado en datos. Calorías, macros y plan de entrenamiento
+              específico. Más de 7.000 transformaciones.
             </p>
-            <a href="#planes" class="mt-8 inline-block border-2 border-vfit-red px-6 py-3 text-xs font-bold uppercase tracking-widest text-vfit-white transition hover:bg-vfit-red">ACCESO</a>
-            <div class="mt-16 flex flex-wrap gap-10 border-t border-vfit-red/30 pt-8">
-              <div><p class="text-2xl font-bold tabular-nums text-vfit-red md:text-3xl">7000+</p><p class="mt-0.5 text-[10px] uppercase text-vfit-white/60">CAMBIOS</p></div>
-              <div><p class="text-2xl font-bold tabular-nums text-vfit-red md:text-3xl">100%</p><p class="mt-0.5 text-[10px] uppercase text-vfit-white/60">ONLINE</p></div>
+            <a
+              href="#planes"
+              class="mt-8 inline-block border-2 border-vfit-red px-6 py-3 text-xs font-bold uppercase tracking-widest text-vfit-white transition hover:bg-vfit-red"
+              >ACCESO</a
+            >
+            <div
+              class="mt-16 flex flex-wrap items-center gap-4 border-t border-vfit-red/30 pt-8"
+            >
+              <div
+                class="inline-flex items-baseline gap-2 rounded-full border border-vfit-red/40 bg-vfit-black/70 px-4 py-2"
+              >
+                <p
+                  class="text-2xl font-bold tabular-nums text-vfit-red md:text-3xl"
+                >
+                  7000+
+                </p>
+                <p
+                  class="text-[10px] font-medium uppercase tracking-[0.25em] text-vfit-white/60"
+                >
+                  CAMBIOS
+                </p>
+              </div>
+              <div
+                class="inline-flex items-baseline gap-2 rounded-full border border-vfit-red/40 bg-vfit-black/70 px-4 py-2"
+              >
+                <p
+                  class="text-2xl font-bold tabular-nums text-vfit-red md:text-3xl"
+                >
+                  100%
+                </p>
+                <p
+                  class="text-[10px] font-medium uppercase tracking-[0.25em] text-vfit-white/60"
+                >
+                  ONLINE
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="metodo" class="border-b border-vfit-red/20 bg-vfit-black py-14 md:py-20">
+      <section
+        id="metodo"
+        class="border-b border-vfit-red/20 bg-vfit-black py-14 md:py-20"
+      >
         <div class="mx-auto max-w-6xl px-4 md:px-8">
-          <h2 class="font-mono text-lg font-bold uppercase tracking-wider text-vfit-red md:text-xl">{METHOD.title}</h2>
-          <p class="mt-2 text-sm text-vfit-white/80">{METHOD.tagline}</p>
-          <ul class="mt-8 space-y-4">
-            {METHOD.points.map((point) => (
-              <li class="flex gap-3 text-sm text-vfit-white/90">
-                <span class="text-vfit-red">›</span>
-                <span class="break-words-safe">{point}</span>
-              </li>
-            ))}
-          </ul>
-          <div class="mt-10 border border-vfit-red/40 bg-vfit-black/60 p-6">
-            <p class="text-2xl font-bold text-vfit-red md:text-3xl">{METHOD.stat}</p>
-            <p class="mt-1 text-sm text-vfit-white/80">{METHOD.statLabel}</p>
-            <a href="#planes" class="mt-4 inline-block border border-vfit-red px-4 py-2 text-xs font-bold uppercase text-vfit-white hover:bg-vfit-red/10">{METHOD.cta}</a>
-          </div>
-        </div>
-      </section>
+          <div class="grid items-start gap-10 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-16">
+            <div>
+              <h2
+                class="text-lg font-bold uppercase tracking-wider text-vfit-red md:text-xl"
+              >
+                {METHOD.title}
+              </h2>
+              <p class="mt-2 text-sm text-vfit-white/80">{METHOD.tagline}</p>
+              <ul class="mt-8 space-y-4">
+                {
+                  METHOD.points.map((point) => (
+                    <li class="flex gap-3 text-sm text-vfit-white/90">
+                      <span class="text-vfit-red">›</span>
+                      <span class="break-words-safe">{point}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+              <div class="mt-10 border border-vfit-red/40 bg-vfit-black/60 p-6">
+                <p class="text-2xl font-bold text-vfit-red md:text-3xl">
+                  {METHOD.stat}
+                </p>
+                <p class="mt-1 text-sm text-vfit-white/80">
+                  {METHOD.statLabel}
+                </p>
+                <a
+                  href="#planes"
+                  class="mt-4 inline-block border border-vfit-red px-4 py-2 text-xs font-bold uppercase text-vfit-white hover:bg-vfit-red/10"
+                  >{METHOD.cta}</a
+                >
+              </div>
+            </div>
 
-      <section id="planes" class="border-b border-vfit-red/20 bg-vfit-black py-14 md:py-20">
-        <div class="mx-auto max-w-6xl px-4 md:px-8">
-          <h2 class="font-mono text-lg font-bold uppercase tracking-wider text-vfit-red md:text-xl">Planes</h2>
-          <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {orderedPlans.map((plan) => {
-              const isRec = plan.id === RECOMMENDED_PLAN_ID;
-              return (
-                <article class={`flex min-w-0 flex-col border p-4 sm:p-5 ${isRec ? 'border-vfit-red bg-vfit-red/10' : 'border-vfit-red/30 bg-vfit-black/80'}`}>
-                  {isRec && <span class="mb-2 text-[10px] font-bold uppercase text-vfit-red">RECOMENDADO</span>}
-                  <h3 class="font-mono text-sm font-bold text-vfit-white">{plan.name}</h3>
-                  <p class="mt-2 font-mono text-xl font-bold text-vfit-red">€{plan.price}<span class="ml-1 text-xs font-normal text-vfit-white/70">{plan.period}</span></p>
-                  <p class="mt-2 flex-1 break-words-safe text-xs leading-relaxed text-vfit-white/70">{plan.description}</p>
-                  <a href="#contacto" class="mt-4 w-full border border-vfit-red py-2.5 text-center text-xs font-bold uppercase text-vfit-white transition hover:bg-vfit-red">Comprar</a>
+            <div class="space-y-4" data-trainer-slider>
+              <div class="text-center text-xs font-medium uppercase tracking-[0.3em] text-vfit-white/50">
+                Entrenador · Método V
+              </div>
+              <div class="relative mx-auto mt-4 h-[320px] w-full max-w-sm sm:h-[380px]">
+                <article
+                  class="group absolute inset-x-0 top-0 mx-auto w-full -rotate-3 overflow-hidden rounded-2xl border border-vfit-red/40 bg-vfit-black/80 shadow-xl shadow-vfit-red/10 opacity-100 translate-x-0 transition-all duration-500"
+                  data-trainer-slide="0"
+                >
+                  <img
+                    src={typeof trainer1 === "string" ? trainer1 : trainer1.src}
+                    alt="Entrenador VFitness - Método V"
+                    loading="lazy"
+                    class="h-56 w-full object-cover object-top transition duration-500 group-hover:scale-105"
+                  />
+                  <div class="px-4 py-3">
+                    <p class="text-[11px] font-semibold uppercase tracking-widest text-vfit-red">
+                      PLANIFICACIÓN
+                    </p>
+                    <p class="mt-1 text-xs text-vfit-white/70">
+                      Ajusto tus calorías y macros en función de tu punto de partida real.
+                    </p>
+                  </div>
                 </article>
-              );
-            })}
+
+                <article
+                  class="group absolute inset-x-0 top-6 mx-auto w-full rotate-2 overflow-hidden rounded-2xl border border-vfit-red/40 bg-vfit-black/80 shadow-xl shadow-vfit-red/10 opacity-0 translate-x-6 transition-all duration-500"
+                  data-trainer-slide="1"
+                >
+                  <img
+                    src={typeof trainer2 === "string" ? trainer2 : trainer2.src}
+                    alt="Entrenador VFitness - Entrenamiento"
+                    loading="lazy"
+                    class="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                  <div class="px-4 py-3">
+                    <p class="text-[11px] font-semibold uppercase tracking-widest text-vfit-red">
+                      ENTRENAMIENTO
+                    </p>
+                    <p class="mt-1 text-xs text-vfit-white/70">
+                      Diseñamos un entreno completo para sacar el máximo de cada sesión.
+                    </p>
+                  </div>
+                </article>
+
+                <article
+                  class="group absolute inset-x-0 top-12 mx-auto w-full -rotate-1 overflow-hidden rounded-2xl border border-vfit-red/40 bg-vfit-black/80 shadow-xl shadow-vfit-red/10 opacity-0 translate-x-6 transition-all duration-500"
+                  data-trainer-slide="2"
+                >
+                  <img
+                    src={typeof trainer3 === "string" ? trainer3 : trainer3.src}
+                    alt="Entrenador VFitness - Acompañamiento"
+                    loading="lazy"
+                    class="h-56 w-full object-cover object-top transition duration-500 group-hover:scale-105"
+                  />
+                  <div class="px-4 py-3">
+                    <p class="text-[11px] font-semibold uppercase tracking-widest text-vfit-red">
+                      ACOMPAÑAMIENTO
+                    </p>
+                    <p class="mt-1 text-xs text-vfit-white/70">
+                      Te acompaño durante todo el proceso para que llegues al físico que buscas.
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="ubicacion" class="border-b border-vfit-red/20 py-14 md:py-20 bg-vfit-black">
+      <section
+        id="planes"
+        class="border-b border-vfit-red/20 bg-vfit-black py-14 md:py-20"
+      >
         <div class="mx-auto max-w-6xl px-4 md:px-8">
-          <h2 class="font-mono text-lg font-bold uppercase tracking-wider text-vfit-red">Ubicación</h2>
-          <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" class="mt-4 inline-block border border-vfit-red px-4 py-2 text-sm text-vfit-white hover:bg-vfit-red/10">Google Maps →</a>
+          <h2
+            class="text-lg font-bold uppercase tracking-wider text-vfit-red md:text-xl"
+          >
+            Planes
+          </h2>
+          <div
+            class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {
+              orderedPlans.map((plan) => {
+                const isRec = plan.id === RECOMMENDED_PLAN_ID;
+                return (
+                  <article
+                    class={`flex min-w-0 flex-col border p-4 sm:p-5 ${isRec ? "border-vfit-red bg-vfit-red/10" : "border-vfit-red/30 bg-vfit-black/80"}`}
+                  >
+                    {isRec && (
+                      <span class="mb-2 text-[10px] font-bold uppercase text-vfit-red">
+                        RECOMENDADO
+                      </span>
+                    )}
+                    <h3 class="text-sm font-bold text-vfit-white">
+                      {plan.name}
+                    </h3>
+                    <p class="mt-2 text-xl font-bold text-vfit-red">
+                      €{plan.price}
+                      <span class="ml-1 text-xs font-normal text-vfit-white/70">
+                        {plan.period}
+                      </span>
+                    </p>
+                    <p class="mt-2 flex-1 break-words-safe text-xs leading-relaxed text-vfit-white/70">
+                      {plan.description}
+                    </p>
+                    <a
+                      href="#contacto"
+                      class="mt-4 w-full border border-vfit-red py-2.5 text-center text-xs font-bold uppercase text-vfit-white transition hover:bg-vfit-red"
+                    >
+                      Comprar
+                    </a>
+                  </article>
+                );
+              })
+            }
+          </div>
         </div>
       </section>
 
-      <section id="instagram" class="border-b border-vfit-red/20 py-14 md:py-20 bg-vfit-black">
+
+      <section
+        id="instagram"
+        class="border-b border-vfit-red/20 py-14 md:py-20 bg-vfit-black"
+      >
         <div class="mx-auto max-w-6xl px-4 md:px-8">
-          <h2 class="font-mono text-lg font-bold uppercase tracking-wider text-vfit-red">Instagram</h2>
-          <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer" class="mt-4 inline-block border border-vfit-red px-4 py-2 text-sm text-vfit-white hover:bg-vfit-red/10">@vfitness_nutricion</a>
-          <div class="mt-8 grid grid-cols-3 gap-2 sm:grid-cols-4">
-            {[1,2,3,4].map((i) => (
-              <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer" class="aspect-square border border-vfit-red/30 bg-vfit-black/70 transition hover:border-vfit-red/70"><span class="flex h-full items-center justify-center text-[10px] text-vfit-white/40">[{i}]</span></a>
-            ))}
+          <h2 class="text-lg font-bold uppercase tracking-wider text-vfit-red">
+            Instagram
+          </h2>
+          <a
+            href={SITE.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 inline-block border border-vfit-red px-4 py-2 text-sm text-vfit-white hover:bg-vfit-red/10"
+            >@vfitness_nutricion</a
+          >
+          <div class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+            <a
+              href={SITE.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group overflow-hidden rounded-2xl border border-vfit-red/40 bg-vfit-black/70 transition hover:border-vfit-red"
+            >
+              <img
+                src={typeof img1 === "string" ? img1 : img1.src}
+                alt="Cambio físico VFitness 1"
+                loading="lazy"
+                class="aspect-[3/4] w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+            </a>
+            <a
+              href={SITE.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group overflow-hidden rounded-2xl border border-vfit-red/40 bg-vfit-black/70 transition hover:border-vfit-red"
+            >
+              <img
+                src={typeof img2 === "string" ? img2 : img2.src}
+                alt="Cambio físico VFitness 2"
+                loading="lazy"
+                class="aspect-[3/4] w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+            </a>
+            <a
+              href={SITE.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group overflow-hidden rounded-2xl border border-vfit-red/40 bg-vfit-black/70 transition hover:border-vfit-red"
+            >
+              <img
+                src={typeof img3 === "string" ? img3 : img3.src}
+                alt="Cambio físico VFitness 3"
+                loading="lazy"
+                class="aspect-[3/4] w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+            </a>
           </div>
         </div>
       </section>
 
       <section id="contacto" class="bg-vfit-black py-14 md:py-20">
         <div class="mx-auto max-w-6xl px-4 md:px-8">
-          <h2 class="font-mono text-lg font-bold uppercase tracking-wider text-vfit-red">Contacto</h2>
-          <form class="mt-6 max-w-md space-y-3" aria-label="Contacto">
-            <input type="text" name="nombre" placeholder="NOMBRE" class="w-full border border-vfit-red/40 bg-vfit-black px-3 py-2.5 text-sm text-vfit-white placeholder:text-vfit-white/40 focus:border-vfit-red focus:outline-none" />
-            <input type="email" name="email" placeholder="EMAIL" class="w-full border border-vfit-red/40 bg-vfit-black px-3 py-2.5 text-sm text-vfit-white placeholder:text-vfit-white/40 focus:border-vfit-red focus:outline-none" />
-            <textarea name="mensaje" rows="3" placeholder="MENSAJE" class="w-full border border-vfit-red/40 bg-vfit-black px-3 py-2.5 text-sm text-vfit-white placeholder:text-vfit-white/40 focus:border-vfit-red focus:outline-none" />
-            <button type="submit" class="w-full border-2 border-vfit-red py-3 text-xs font-bold uppercase text-vfit-white hover:bg-vfit-red">Enviar</button>
+          <h2 class="text-center text-lg font-bold uppercase tracking-wider text-vfit-red">
+            Contacto
+          </h2>
+          <form class="mx-auto mt-6 max-w-md space-y-3 text-center" aria-label="Contacto">
+            <input
+              type="text"
+              name="nombre"
+              placeholder="NOMBRE"
+              class="w-full border border-vfit-red/40 bg-vfit-black px-3 py-2.5 text-sm text-vfit-white placeholder:text-vfit-white/40 focus:border-vfit-red focus:outline-none"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="EMAIL"
+              class="w-full border border-vfit-red/40 bg-vfit-black px-3 py-2.5 text-sm text-vfit-white placeholder:text-vfit-white/40 focus:border-vfit-red focus:outline-none"
+            />
+            <textarea
+              name="mensaje"
+              rows="3"
+              placeholder="MENSAJE"
+              class="w-full border border-vfit-red/40 bg-vfit-black px-3 py-2.5 text-sm text-vfit-white placeholder:text-vfit-white/40 focus:border-vfit-red focus:outline-none"
+            ></textarea>
+            <button
+              type="submit"
+              class="w-full border-2 border-vfit-red py-3 text-xs font-bold uppercase text-vfit-white hover:bg-vfit-red"
+              >Enviar</button
+            >
           </form>
         </div>
       </section>
     </main>
 
-    <footer class="border-t border-vfit-red/30 py-4 bg-vfit-black">
-      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 text-[10px] text-vfit-white/60 md:flex-row md:px-8">
-        <p>© {new Date().getFullYear()} VFitness</p>
-        <p><a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" class="hover:text-vfit-white">Mapa</a> · <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer" class="hover:text-vfit-white">Instagram</a></p>
+    <footer class="border-t border-vfit-red/30 bg-vfit-black py-10 text-[11px] text-vfit-white/70">
+      <div class="mx-auto flex max-w-6xl flex-col gap-10 px-4 md:px-8">
+        <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+          <div class="max-w-xs space-y-2">
+            <p class="text-xs font-bold tracking-[0.3em] text-vfit-red">
+              VFITNESS
+            </p>
+            <p class="text-[11px] text-vfit-white/60">
+              Método V · Dietas y entrenos online personalizados.
+            </p>
+            <p class="mt-2 text-[11px] text-vfit-white/50">
+              NIF/CIF 53327056S · C/ Sant Jeroni 10, Santa Coloma de Gramenet (Barcelona).
+            </p>
+          </div>
+
+          <div class="grid gap-6 md:grid-cols-2 md:gap-10">
+            <div class="space-y-2">
+              <button
+                type="button"
+                class="flex w-full items-center justify-between border-b border-vfit-red/40 pb-1 text-left text-xs font-semibold uppercase tracking-[0.25em] text-vfit-red transition hover:text-vfit-white"
+                data-legal-toggle="aviso"
+                aria-expanded="false"
+              >
+                <span>Aviso legal</span>
+                <span class="text-[10px] text-vfit-white/60" aria-hidden="true">+</span>
+              </button>
+              <div
+                class="mt-2 hidden max-h-40 space-y-2 overflow-y-auto pr-2 text-[10px] leading-relaxed text-vfit-white/60"
+                data-legal-content="aviso"
+              >
+                <p>
+                  Vfitness, provisto con NIF/CIF 53327056S, dirección C/ Sant Jeroni 10, no puede asumir ninguna responsabilidad derivada del uso incorrecto, inapropiado o ilícito de la información aparecida en la página de Internet de www.vfitness.es.
+                </p>
+                <p>
+                  Con los límites establecidos en la ley, Vfitness no asume ninguna responsabilidad derivada de la falta de veracidad, integridad, actualización y precisión de los datos o informaciones que se contienen en sus páginas de Internet.
+                </p>
+                <p>
+                  Los contenidos e información no vinculan a Vfitness ni constituyen opiniones, consejos o asesoramiento legal de ningún tipo pues se trata meramente de un servicio ofrecido con carácter informativo y divulgativo.
+                </p>
+                <p>
+                  La página de Internet de www.vfitness.es puede contener enlaces (links) a otras páginas de terceras partes que Vfitness no puede controlar, por lo tanto, Vfitness no puede asumir responsabilidades por el contenido que pueda aparecer en páginas de terceros.
+                </p>
+                <p>
+                  Los textos, imágenes, sonidos, animaciones, software y el resto de contenidos incluidos en este website son propiedad exclusiva de Vfitness o sus licenciantes. Cualquier acto de transmisión, distribución, cesión, reproducción, almacenamiento o comunicación pública total o parcial, debe contar con el consentimiento expreso de Vfitness.
+                </p>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="space-y-2">
+                <button
+                  type="button"
+                  class="flex w-full items-center justify-between border-b border-vfit-red/40 pb-1 text-left text-xs font-semibold uppercase tracking-[0.25em] text-vfit-red transition hover:text-vfit-white"
+                  data-legal-toggle="privacidad"
+                  aria-expanded="false"
+                >
+                  <span>Política de privacidad</span>
+                  <span class="text-[10px] text-vfit-white/60" aria-hidden="true">+</span>
+                </button>
+                <div
+                  class="mt-2 hidden max-h-32 space-y-2 overflow-y-auto pr-2 text-[10px] leading-relaxed text-vfit-white/60"
+                  data-legal-content="privacidad"
+                >
+                  <p>
+                    Vfitness, en aplicación de la normativa vigente en materia de protección de datos de carácter personal, informa que los datos personales que se recogen a través de los formularios del sitio web www.vfitness.es se incluyen en los ficheros automatizados específicos de usuarios de los servicios de Vfitness.
+                  </p>
+                  <p>
+                    La finalidad del tratamiento es el mantenimiento de la relación comercial, la gestión de servicios de asesoría online (dietas y entrenos), así como el envío de información y comunicaciones comerciales relacionadas. Podrá ejercer sus derechos de acceso, rectificación, cancelación y oposición mediante email a vfitness@outlook.es o en C/ Sant Jeroni 10, Santa Coloma de Gramenet (Barcelona).
+                  </p>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <button
+                  type="button"
+                  class="flex w-full items-center justify-between border-b border-vfit-red/40 pb-1 text-left text-xs font-semibold uppercase tracking-[0.25em] text-vfit-red transition hover:text-vfit-white"
+                  data-legal-toggle="cookies"
+                  aria-expanded="false"
+                >
+                  <span>Cookies</span>
+                  <span class="text-[10px] text-vfit-white/60" aria-hidden="true">+</span>
+                </button>
+                <div
+                  class="mt-2 hidden space-y-1 text-[10px] leading-relaxed text-vfit-white/60"
+                  data-legal-content="cookies"
+                >
+                  <p>
+                    www.vfitness.es utiliza cookies propias y de terceros con fines técnicos y de análisis, para mejorar la experiencia de usuario y medir la actividad del sitio. Puede configurar, desactivar o eliminar las cookies desde la configuración de su navegador.
+                  </p>
+                  <p>
+                    Al continuar navegando acepta nuestra política de cookies, sin perjuicio de que pueda revocar su consentimiento en cualquier momento.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-col gap-4 border-t border-vfit-red/20 pt-4 text-[10px] text-vfit-white/60 md:flex-row md:items-center md:justify-between">
+          <div class="flex flex-wrap items-center gap-3">
+            <span>© {new Date().getFullYear()} Vfitness</span>
+            <span class="hidden h-3 w-px bg-vfit-red/40 md:inline-block" aria-hidden="true"></span>
+            <a
+              href={SITE.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline-offset-2 hover:text-vfit-white hover:underline"
+            >
+              Ubicación (Google Maps)
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4">
+            <div class="flex items-center gap-3">
+              <a
+                href={SITE.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="uppercase tracking-[0.2em] text-vfit-white/70 hover:text-vfit-white"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.tiktok.com/@vfitness_nutricion?lang=es"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="uppercase tracking-[0.2em] text-vfit-white/70 hover:text-vfit-white"
+              >
+                TikTok
+              </a>
+              <a
+                href="https://www.facebook.com/vfitnessnutricion"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="uppercase tracking-[0.2em] text-vfit-white/70 hover:text-vfit-white"
+              >
+                Facebook
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   </div>
 
   <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileNav = document.getElementById('mobile-nav');
-    const heroVideo = document.getElementById('hero-video');
-    const heroTagline = document.getElementById('hero-tagline');
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileNav = document.getElementById("mobile-nav");
+    const heroVideo = document.getElementById("hero-video");
+    const headerEl = document.getElementById("main-header");
+
     if (menuBtn && mobileNav) {
-      menuBtn.addEventListener('click', () => {
-        const open = mobileNav.classList.toggle('hidden');
-        menuBtn.setAttribute('aria-expanded', String(!open));
-        menuBtn.querySelector('.menu-icon-open')?.classList.toggle('hidden', !open);
-        menuBtn.querySelector('.menu-icon-close')?.classList.toggle('hidden', open);
+      menuBtn.addEventListener("click", () => {
+        const open = mobileNav.classList.toggle("hidden");
+        menuBtn.setAttribute("aria-expanded", String(!open));
+        menuBtn
+          .querySelector(".menu-icon-open")
+          ?.classList.toggle("hidden", !open);
+        menuBtn
+          .querySelector(".menu-icon-close")
+          ?.classList.toggle("hidden", open);
       });
-      mobileNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { mobileNav.classList.add('hidden'); menuBtn?.setAttribute('aria-expanded', 'false'); menuBtn?.querySelector('.menu-icon-open')?.classList.remove('hidden'); menuBtn?.querySelector('.menu-icon-close')?.classList.add('hidden'); }));
+      mobileNav.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => {
+          mobileNav.classList.add("hidden");
+          menuBtn?.setAttribute("aria-expanded", "false");
+          menuBtn?.querySelector(".menu-icon-open")?.classList.remove("hidden");
+          menuBtn?.querySelector(".menu-icon-close")?.classList.add("hidden");
+        }),
+      );
     }
+
     if (heroVideo) {
-      heroVideo.addEventListener('loadedmetadata', () => {
+      heroVideo.addEventListener("loadedmetadata", () => {
         try {
           if (heroVideo.currentTime < 2) heroVideo.currentTime = 2;
         } catch (e) {}
       });
     }
-    if (heroTagline) {
-      const phrases = [
-        '// V_SYSTEM_ONLINE',
-        '// DATA_DRIVEN_COACHING',
-        '// ALTO_RENDIMIENTO_24/7',
-        '// INPUT_DISCIPLINA → OUTPUT_RESULTADOS',
-      ];
-      let idx = 0;
-      const updateTagline = () => {
-        heroTagline.textContent = phrases[idx];
-        idx = (idx + 1) % phrases.length;
+
+    if (headerEl) {
+      const updateHeader = () => {
+        const solid = window.scrollY > 40;
+        headerEl.classList.toggle("bg-vfit-black/40", !solid);
+        headerEl.classList.toggle("bg-vfit-black/95", solid);
+        headerEl.classList.toggle("border-b", solid);
+        headerEl.classList.toggle("border-vfit-red/30", solid);
+        headerEl.classList.toggle("shadow-lg", solid);
       };
-      updateTagline();
-      setInterval(updateTagline, 2600);
+
+      window.addEventListener("scroll", updateHeader, { passive: true });
+      updateHeader();
+    }
+
+    const trainerSlider = document.querySelector("[data-trainer-slider]");
+    if (trainerSlider) {
+      const trainerSlides = trainerSlider.querySelectorAll("[data-trainer-slide]");
+      let trainerIndex = 0;
+
+      const setTrainerSlide = (index) => {
+        trainerSlides.forEach((slide, i) => {
+          const active = i === index;
+          slide.classList.toggle("opacity-100", active);
+          slide.classList.toggle("opacity-0", !active);
+          slide.classList.toggle("translate-x-0", active);
+          slide.classList.toggle("translate-x-6", !active);
+        });
+      };
+
+      if (trainerSlides.length > 1) {
+        setTrainerSlide(trainerIndex);
+        setInterval(() => {
+          trainerIndex = (trainerIndex + 1) % trainerSlides.length;
+          setTrainerSlide(trainerIndex);
+        }, 4500);
+      }
+    }
+
+    const legalToggles = document.querySelectorAll("[data-legal-toggle]");
+    if (legalToggles.length) {
+      legalToggles.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const key = btn.getAttribute("data-legal-toggle");
+          if (!key) return;
+          const content = document.querySelector(
+            `[data-legal-content="${key}"]`,
+          );
+          if (!content) return;
+          const isOpen = !content.classList.contains("hidden");
+          content.classList.toggle("hidden", isOpen);
+          btn.setAttribute("aria-expanded", String(!isOpen));
+          const symbolEl = btn.querySelector("span:last-child");
+          if (symbolEl) symbolEl.textContent = isOpen ? "+" : "−";
+        });
+      });
     }
   </script>
   <style is:global>
     @keyframes scan {
-      0%, 100% { background-position: 0 -100%; }
-      50% { background-position: 0 200%; }
+      0%,
+      100% {
+        background-position: 0 -100%;
+      }
+      50% {
+        background-position: 0 200%;
+      }
     }
   </style>
 </Layout>
-

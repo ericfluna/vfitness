@@ -5,7 +5,7 @@ export const SITE = {
 } as const;
 
 export const METHOD = {
-  title: 'Método VFitness',
+  title: 'Método V',
   tagline: 'Hemos desarrollado un método simple y muy efectivo para que llegues a tu objetivo.',
   points: [
     'Contabilizamos todas las calorías a partir de tu metabolismo basal, adaptando los macronutrientes para que todo haga bien su función. Si todo está bien adaptado, los resultados son increíbles.',
