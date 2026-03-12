@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE, METHOD, PLANS, RECOMMENDED_PLAN_ID } from '../data/vfitness';
+import heroLoop from '../assets/hero-loop.mp4';
 const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -1 : b.id === RECOMMENDED_PLAN_ID ? 1 : 0));
 ---
 
@@ -38,8 +39,8 @@ const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -
         <div class="absolute inset-0 bg-zen-cream" />
         <div class="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-zen-olive/10 blur-3xl" aria-hidden="true" />
         <div class="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-zen-beige/80 blur-2xl" aria-hidden="true" />
-        <div class="relative z-10 flex min-h-[100vh] flex-col justify-center px-4 py-24 md:px-8">
-          <div class="mx-auto w-full max-w-2xl">
+        <div class="relative z-10 flex min-h-[100vh] flex-col justify-center gap-8 px-4 py-24 md:flex-row md:items-center md:gap-12 md:px-8">
+          <div class="mx-auto w-full max-w-2xl md:mx-0">
             <p class="text-sm font-semibold uppercase tracking-widest text-zen-olive">Bienestar integral</p>
             <h1 class="mt-6 font-zen text-4xl font-bold leading-tight text-zen-earth sm:text-5xl md:text-6xl">
               Tu cuerpo en equilibrio.<br />
@@ -49,9 +50,17 @@ const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -
               Método simple y muy efectivo: metabolismo basal, macronutrientes y plan de entrenamiento. Más de 7.000 cambios. Sostenible.
             </p>
             <a href="/example-4#planes" class="mt-10 inline-flex rounded-full bg-zen-olive px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-zen-olive/90">Descubrir planes</a>
-            <div class="mt-20 flex flex-wrap gap-12 border-t border-zen-beige pt-10">
+            <div class="mt-12 flex flex-wrap gap-12 border-t border-zen-beige pt-8 md:mt-20 md:pt-10">
               <div><p class="text-3xl font-bold text-zen-olive md:text-4xl">7.000+</p><p class="mt-1 text-sm text-zen-earth/60">Transformaciones</p></div>
               <div><p class="text-3xl font-bold text-zen-olive md:text-4xl">100%</p><p class="mt-1 text-sm text-zen-earth/60">Online</p></div>
+            </div>
+          </div>
+          <div class="mx-auto w-full max-w-md shrink-0 md:mx-0">
+            <div class="overflow-hidden rounded-3xl border-2 border-zen-beige bg-zen-beige/30 shadow-xl">
+              <div class="aspect-video w-full">
+                <video class="h-full w-full object-cover" autoplay loop muted playsinline aria-hidden="true" src={typeof heroLoop === 'string' ? heroLoop : heroLoop.src} />
+              </div>
+              <p class="px-4 py-3 text-center text-sm font-medium text-zen-earth/80">Tu transformación, paso a paso</p>
             </div>
           </div>
         </div>

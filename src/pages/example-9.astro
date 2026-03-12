@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE, METHOD, PLANS, RECOMMENDED_PLAN_ID } from '../data/vfitness';
+const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -1 : b.id === RECOMMENDED_PLAN_ID ? 1 : 0));
+---
+
+<Layout title="VFitness · Nutrición y entreno" description="Método VFitness. Planes personalizados online.">
+  <div class="min-h-screen bg-dash-dark font-sans text-dash-white antialiased">
+    <header class="sticky top-0 z-50 border-b border-dash-base bg-dash-dark/80 backdrop-blur" id="main-header">
+      <div class="mx-auto flex max-w-2xl flex-wrap items-center justify-between gap-4 px-4 py-4 md:px-6">
+        <a href="/example-9" class="text-sm font-medium text-dash-gold">VFitness</a>
+        <nav class="hidden gap-6 text-sm text-dash-white/60 md:flex">
+          <a href="/example-9#metodo" class="hover:text-dash-gold">Método</a>
+          <a href="/example-9#planes" class="hover:text-dash-gold">Planes</a>
+          <a href="/example-9#contacto" class="hover:text-dash-gold">Contacto</a>
+        </nav>
+        <button type="button" class="flex h-9 w-9 shrink-0 items-center justify-center text-dash-gold md:hidden" id="menu-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menú">
+          <span class="menu-icon-open">≡</span>
+          <span class="menu-icon-close hidden">×</span>
+        </button>
+      </div>
+      <div class="mobile-nav-panel hidden border-t border-dash-base bg-dash-dark px-4 py-4 md:hidden" id="mobile-nav">
+        <nav class="flex flex-col gap-1 text-sm">
+          <a href="/example-9#metodo" class="py-2.5 text-dash-white/60 hover:text-dash-gold">Método</a>
+          <a href="/example-9#planes" class="py-2.5 text-dash-white/60 hover:text-dash-gold">Planes</a>
+          <a href="/example-9#contacto" class="py-2.5 text-dash-white/60 hover:text-dash-gold">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-2xl px-4 py-16 md:py-24 md:px-6">
+      <section class="border-b border-dash-base pb-20" id="hero">
+        <h1 class="text-2xl font-medium tracking-tight text-dash-white md:text-3xl">
+          Nutrición y entreno<br />
+          <span class="text-dash-gold">personalizados</span>
+        </h1>
+        <p class="mt-6 max-w-md text-sm leading-relaxed text-dash-white/60">
+          Método simple. Más de 7.000 cambios. Todo online.
+        </p>
+        <a href="/example-9#planes" class="mt-8 inline-block text-sm text-dash-gold hover:underline">Ver planes</a>
+      </section>
+
+      <section id="metodo" class="border-b border-dash-base py-16">
+        <h2 class="text-lg font-medium text-dash-gold">{METHOD.title}</h2>
+        <p class="mt-2 text-sm text-dash-white/70">{METHOD.tagline}</p>
+        <ul class="mt-8 space-y-4">
+          {METHOD.points.map((point) => (
+            <li class="text-sm leading-relaxed text-dash-white/80">
+              {point}
+            </li>
+          ))}
+        </ul>
+        <p class="mt-10 text-lg font-medium text-dash-gold">{METHOD.stat}</p>
+        <p class="mt-1 text-sm text-dash-white/60">{METHOD.statLabel}</p>
+        <a href="/example-9#planes" class="mt-6 inline-block text-sm text-dash-gold hover:underline">{METHOD.cta}</a>
+      </section>
+
+      <section id="planes" class="border-b border-dash-base py-16">
+        <h2 class="text-lg font-medium text-dash-gold">Planes</h2>
+        <div class="mt-8 space-y-6">
+          {orderedPlans.map((plan) => {
+            const isRec = plan.id === RECOMMENDED_PLAN_ID;
+            return (
+              <div class={`flex flex-col gap-1 border-b border-dash-base pb-6 last:border-0 last:pb-0 ${isRec ? 'border-l-2 border-l-dash-gold pl-4' : ''}`}>
+                {isRec && <span class="text-xs text-dash-gold">Recomendado</span>}
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 class="text-dash-white">{plan.name}</h3>
+                  <p class="text-dash-gold">€{plan.price} <span class="text-dash-white/50 text-sm">{plan.period}</span></p>
+                </div>
+                <p class="text-sm text-dash-white/60">{plan.description}</p>
+                <a href="/example-9#contacto" class="mt-2 text-sm text-dash-gold hover:underline">Solicitar</a>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <section id="ubicacion" class="border-b border-dash-base py-12">
+        <h2 class="text-lg font-medium text-dash-gold">Ubicación</h2>
+        <a href={SITE.mapsUrl} target="_blank" rel="noopener noreferrer" class="mt-3 inline-block text-sm text-dash-gold hover:underline">Google Maps</a>
+      </section>
+
+      <section id="instagram" class="border-b border-dash-base py-12">
+        <h2 class="text-lg font-medium text-dash-gold">Instagram</h2>
+        <a href={SITE.instagramUrl} target="_blank" rel="noopener noreferrer" class="mt-3 inline-block text-sm text-dash-gold hover:underline">@vfitness_nutricion</a>
+      </section>
+
+      <section id="contacto" class="py-16">
+        <h2 class="text-lg font-medium text-dash-gold">Contacto</h2>
+        <form class="mt-8 space-y-4" aria-label="Contacto">
+          <input type="text" name="nombre" placeholder="Nombre" class="w-full border-b border-dash-base bg-transparent py-2 text-sm text-dash-white placeholder:text-dash-white/40 focus:border-dash-gold focus:outline-none" />
+          <input type="email" name="email" placeholder="Email" class="w-full border-b border-dash-base bg-transparent py-2 text-sm text-dash-white placeholder:text-dash-white/40 focus:border-dash-gold focus:outline-none" />
+          <textarea name="mensaje" rows="2" placeholder="Mensaje" class="w-full border-b border-dash-base bg-transparent py-2 text-sm text-dash-white placeholder:text-dash-white/40 focus:border-dash-gold focus:outline-none" />
+          <button type="submit" class="text-sm text-dash-gold hover:underline">Enviar</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="border-t border-dash-base py-6">
+      <div class="mx-auto max-w-2xl px-4 text-center text-xs text-dash-white/40 md:px-6">
+        <p>© {new Date().getFullYear()} VFitness · <a href="/" class="hover:text-dash-gold">Ejemplos</a></p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', () => { mobileNav.classList.toggle('hidden'); menuBtn.setAttribute('aria-expanded', mobileNav.classList.contains('hidden') ? 'false' : 'true'); menuBtn.querySelector('.menu-icon-open')?.classList.toggle('hidden', !mobileNav.classList.contains('hidden')); menuBtn.querySelector('.menu-icon-close')?.classList.toggle('hidden', mobileNav.classList.contains('hidden')); });
+      mobileNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { mobileNav.classList.add('hidden'); menuBtn?.setAttribute('aria-expanded', 'false'); menuBtn?.querySelector('.menu-icon-open')?.classList.remove('hidden'); menuBtn?.querySelector('.menu-icon-close')?.classList.add('hidden'); }));
+    }
+  </script>
+</Layout>

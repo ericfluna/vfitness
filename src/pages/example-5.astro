@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE, METHOD, PLANS, RECOMMENDED_PLAN_ID } from '../data/vfitness';
+import heroLoop from '../assets/hero-loop.mp4';
 const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -1 : b.id === RECOMMENDED_PLAN_ID ? 1 : 0));
 ---
 
@@ -36,7 +37,11 @@ const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -
     <main>
       <section class="relative min-h-[100vh] overflow-hidden" id="hero">
         <div class="absolute inset-0 bg-luxury-navy" />
-        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-luxury-gold/30 to-transparent" aria-hidden="true" />
+        <div class="absolute bottom-0 left-0 right-0 z-0 h-[28vh] min-h-[180px]">
+          <video class="h-full w-full object-cover opacity-40" autoplay loop muted playsinline aria-hidden="true" src={typeof heroLoop === 'string' ? heroLoop : heroLoop.src} />
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 z-[1] h-[28vh] min-h-[180px] bg-gradient-to-t from-luxury-navy to-transparent" aria-hidden="true" />
+        <div class="absolute bottom-0 left-0 right-0 z-[1] h-px bg-gradient-to-r from-transparent via-luxury-gold/30 to-transparent" aria-hidden="true" />
         <div class="relative z-10 flex min-h-[100vh] flex-col justify-center px-4 py-24 md:px-8">
           <div class="mx-auto w-full max-w-2xl text-center">
             <h1 class="font-luxury text-4xl font-semibold leading-tight tracking-wide text-luxury-champagne sm:text-5xl md:text-6xl">

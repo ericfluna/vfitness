@@ -18,3 +18,7 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+# Large assets (GitHub limit 100 MB) — use Git LFS or host elsewhere
+src/assets/hero-loop.mp4
+*.mp4

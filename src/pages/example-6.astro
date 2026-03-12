@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE, METHOD, PLANS, RECOMMENDED_PLAN_ID } from '../data/vfitness';
+import heroLoop from '../assets/hero-loop.mp4';
 const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -1 : b.id === RECOMMENDED_PLAN_ID ? 1 : 0));
 ---
 
@@ -35,9 +36,13 @@ const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -
 
     <main>
       <section class="relative min-h-[100vh] overflow-hidden border-b-4 border-kinetic-blue" id="hero">
-        <div class="absolute inset-0 bg-kinetic-white" />
-        <div class="absolute -right-20 top-1/4 h-72 w-72 rotate-12 bg-kinetic-red/10" aria-hidden="true" />
-        <div class="absolute bottom-1/4 -left-20 h-64 w-64 -rotate-12 bg-kinetic-blue/10" aria-hidden="true" />
+        <div class="absolute inset-0 z-0 overflow-hidden">
+          <video class="absolute right-0 top-0 h-full w-[60%] object-cover object-right" autoplay loop muted playsinline aria-hidden="true" src={typeof heroLoop === 'string' ? heroLoop : heroLoop.src} />
+          <div class="absolute inset-0 bg-kinetic-white" />
+          <div class="absolute left-0 top-0 h-full w-[55%] bg-kinetic-white" aria-hidden="true" />
+        </div>
+        <div class="absolute -right-20 top-1/4 z-[1] h-72 w-72 rotate-12 bg-kinetic-red/10" aria-hidden="true" />
+        <div class="absolute bottom-1/4 -left-20 z-[1] h-64 w-64 -rotate-12 bg-kinetic-blue/10" aria-hidden="true" />
         <div class="relative z-10 flex min-h-[100vh] flex-col justify-center px-4 py-20 md:px-8">
           <div class="mx-auto w-full max-w-4xl">
             <p class="text-sm font-bold uppercase tracking-widest text-kinetic-red">Energía · Movimiento</p>

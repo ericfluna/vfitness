@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE, METHOD, PLANS, RECOMMENDED_PLAN_ID } from '../data/vfitness';
+import heroLoop from '../assets/hero-loop.mp4';
 const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -1 : b.id === RECOMMENDED_PLAN_ID ? 1 : 0));
 ---
 
@@ -37,8 +38,13 @@ const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -
       <section class="relative min-h-[100vh] overflow-hidden border-b-4 border-brutal-black" id="hero">
         <div class="absolute inset-0 bg-brutal-dark" />
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(250,204,21,0.05)_0%,transparent_70%)]" aria-hidden="true" />
+        <div class="absolute right-4 top-1/2 z-10 w-[min(320px,85vw)] -translate-y-1/2 border-4 border-brutal-yellow bg-brutal-black p-2 md:right-8 md:w-96">
+          <div class="aspect-video w-full overflow-hidden">
+            <video class="h-full w-full object-cover" autoplay loop muted playsinline aria-hidden="true" src={typeof heroLoop === 'string' ? heroLoop : heroLoop.src} />
+          </div>
+        </div>
         <div class="relative z-10 flex min-h-[100vh] flex-col justify-center px-4 py-20 md:px-8">
-          <div class="mx-auto w-full max-w-5xl">
+          <div class="mx-auto w-full max-w-2xl md:max-w-3xl">
             <h1 class="text-5xl leading-[0.95] tracking-tighter text-white sm:text-6xl md:text-7xl lg:text-8xl">
               NO<br />
               <span class="text-brutal-yellow">TE PARES.</span>

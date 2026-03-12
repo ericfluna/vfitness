@@ -5,44 +5,30 @@ const examples = [
   {
     slug: 'example-1',
     title: 'Ejemplo 1',
-    subtitle: 'The Cyber-Athlete',
-    description: 'Futurista / alto rendimiento. Negro carbón, gris metálico, cian neón o violeta eléctrico. Tipografías monoespaciadas, líneas de escáner, bordes afilados. Para entrenadores tech y público joven.',
+    subtitle: 'Base (colores dashboard)',
+    description: 'Paleta del dashboard (oscuro, oro). Tipografía mono, línea de escáner en el hero, vídeo a pantalla completa. Es la base de la que salen el brutalist, pro IFBB y minimal.',
     cta: 'Ver ejemplo 1',
   },
   {
     slug: 'example-2',
     title: 'Ejemplo 2',
-    subtitle: 'The Bio-Hacker',
-    description: 'Científico / clínico premium. Blanco o gris claro, azul cobalto o verde médico. Mucho espacio en blanco, serif elegante. Para nutricionistas de salud hormonal, longevidad o patologías.',
+    subtitle: 'Brutalist',
+    description: 'Misma paleta, más brutal: Bebas Neue, bordes gruesos, titulares enormes, vídeo de fondo. Sin concesiones.',
     cta: 'Ver ejemplo 2',
   },
   {
     slug: 'example-3',
     title: 'Ejemplo 3',
-    subtitle: 'The Brutalist Gritty',
-    description: 'Raw / cemento y sudor. Gris cemento, negro, amarillo industrial. Texturas tipo hormigón, tipografía enorme bold. Para fuerza, powerlifting o CrossFit de alta intensidad.',
+    subtitle: 'Pro IFBB',
+    description: 'Misma paleta, tono competición: serif, badge «Preparación», layout serio. Para atletas y nivel élite.',
     cta: 'Ver ejemplo 3',
   },
   {
     slug: 'example-4',
     title: 'Ejemplo 4',
-    subtitle: 'The Wellness Zen',
-    description: 'Orgánico / equilibrio vital. Tonos tierra, beige, verde oliva, crema. Formas suaves, tipografía redondeada. Para coaches de nutrición integral, yoga y pérdida de peso sostenible.',
+    subtitle: 'Minimalista',
+    description: 'Misma paleta, máximo minimalismo: sin vídeo, una columna, mucho aire, solo lo esencial.',
     cta: 'Ver ejemplo 4',
-  },
-  {
-    slug: 'example-5',
-    title: 'Ejemplo 5',
-    subtitle: 'The Luxury Stealth',
-    description: 'Exclusividad / boutique. Azul marino, verde bosque o borgoña, detalles oro o champagne. Minimalismo extremo, serif fina. Para asesorías alto ticket y entrenadores de CEOs.',
-    cta: 'Ver ejemplo 5',
-  },
-  {
-    slug: 'example-6',
-    title: 'Ejemplo 6',
-    subtitle: 'The Kinetic Energy',
-    description: 'Dinámico / urbano. Rojo y azul eléctrico, sensación de movimiento. Textos inclinados, collage, estilo Nike/Adidas. Para deportes de equipo y fitness grupal.',
-    cta: 'Ver ejemplo 6',
   },
 ];
 ---
@@ -61,39 +47,42 @@ const examples = [
       </div>
     </header>
 
-    <div class="mx-auto max-w-4xl px-4 py-10 md:py-16">
-      <section class="mb-12 md:mb-16">
-        <h1 class="text-2xl font-semibold tracking-tight text-vfit-white md:text-3xl">
-          Ideas para tu web de VFitness
+    <div class="mx-auto max-w-4xl px-4 py-6 md:py-8">
+      <section class="mb-6 md:mb-8">
+        <h1 class="text-xl font-semibold tracking-tight text-vfit-white md:text-2xl">
+          Ideas para tu web
         </h1>
-        <p class="mt-4 max-w-2xl text-sm leading-relaxed text-neutral-300 md:text-base">
-          Hola. Esta es una <strong class="text-neutral-200">página de prueba</strong> pensada para ti como entrenador y nutricionista.
-          Aquí no se muestra una única web definitiva, sino <strong class="text-vfit-gold">seis ejemplos distintos</strong> de cómo podría verse la landing de VFitness.
-        </p>
-        <p class="mt-3 max-w-2xl text-sm leading-relaxed text-neutral-400">
-          Debajo encontrarás <strong class="text-neutral-300">6 tarjetas</strong>. Cada una lleva a un diseño diferente (oscuro, claro, más gym, más editorial).
-          Navega entre ellos, compara y anota qué te gusta de cada uno: estructura, tono, colores o secciones. Con eso podremos definir juntos la web final.
-        </p>
-        <p class="mt-2 text-xs text-neutral-500">
-          Cada ejemplo usa una paleta y un tono distintos (elite, tech, lifestyle, app). Todos mantienen la ubicación en Santa Coloma de Gramenet. Navega, compara y elige qué dirección encaja con tu marca.
+        <p class="mt-2 max-w-2xl text-sm leading-relaxed text-neutral-400">
+          Hola. Aquí tienes <strong class="text-vfit-gold">varios ejemplos</strong> (base, brutalist, pro IFBB, minimal) con los mismos colores del dashboard. Entra en cada uno, mira qué te mola (colores, tono, estructura) y cuando tengas claro qué te encaja, lo vemos y afinamos.
         </p>
       </section>
 
-      <section class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" aria-label="Ejemplos de web VFitness">
+      <a
+        href="/dashboard"
+        class="mb-8 flex items-center justify-between gap-4 rounded-xl border-2 border-vfit-gold/50 bg-vfit-gold/10 px-5 py-4 transition hover:border-vfit-gold hover:bg-vfit-gold/15"
+      >
+        <div>
+          <p class="font-semibold text-vfit-gold">Dashboard</p>
+          <p class="mt-0.5 text-xs text-neutral-400">Panel de usuarios con datos de prueba</p>
+        </div>
+        <span class="text-vfit-gold">→</span>
+      </a>
+
+      <section class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-label="Ejemplos de web VFitness">
         {examples.map((ex) => (
           <a
             href={`/${ex.slug}`}
-            class="group flex flex-col rounded-2xl border border-neutral-800 bg-neutral-950/80 p-6 transition hover:border-vfit-gold/50 hover:bg-neutral-900/80"
+            class="group flex flex-col rounded-xl border border-neutral-800 bg-neutral-950/80 p-4 transition hover:border-vfit-gold/50 hover:bg-neutral-900/80"
           >
-            <div class="mb-2 flex items-center justify-between">
-              <span class="text-xs font-semibold uppercase tracking-[0.18em] text-vfit-gold">{ex.title}</span>
+            <div class="mb-1 flex items-center justify-between">
+              <span class="text-xs font-semibold uppercase tracking-wider text-vfit-gold">{ex.title}</span>
               <span class="text-[10px] uppercase text-neutral-500">{ex.subtitle}</span>
             </div>
-            <h2 class="text-lg font-semibold text-vfit-white group-hover:text-vfit-gold/90">{ex.subtitle}</h2>
-            <p class="mt-2 flex-1 text-sm text-neutral-400">
+            <h2 class="text-base font-semibold text-vfit-white group-hover:text-vfit-gold/90">{ex.subtitle}</h2>
+            <p class="mt-1.5 flex-1 text-xs text-neutral-400 leading-snug">
               {ex.description}
             </p>
-            <span class="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-vfit-gold group-hover:gap-3 transition-[gap]">
+            <span class="mt-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-vfit-gold group-hover:gap-3 transition-[gap]">
               {ex.cta}
               <span aria-hidden="true">→</span>
             </span>
@@ -101,12 +90,12 @@ const examples = [
         ))}
       </section>
 
-      <p class="mt-10 text-center text-xs text-neutral-500">
-        Puedes volver a esta página desde cualquier ejemplo con el enlace <strong class="text-neutral-400">«Ver todos los ejemplos»</strong> en el pie de página.
+      <p class="mt-6 text-center text-xs text-neutral-500">
+        En cada ejemplo puedes volver aquí con «Ver todos los ejemplos» en el pie.
       </p>
     </div>
 
-    <footer class="mt-16 border-t border-neutral-900 py-6">
+    <footer class="mt-10 border-t border-neutral-900 py-4">
       <div class="mx-auto max-w-4xl px-4 text-center text-xs text-neutral-500 md:px-6">
         <p>© {new Date().getFullYear()} VFitness · Webs de prueba para el entrenador.</p>
       </div>

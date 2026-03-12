@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const users = [
+  { id: 1, name: 'Laura Martínez', email: 'laura.m@email.com', plan: 'Dieta + Entreno Mensual', status: 'activo', since: '2025-01-15', progress: 78 },
+  { id: 2, name: 'Carlos Ruiz', email: 'carlos.r@email.com', plan: 'Dieta Mensual', status: 'activo', since: '2025-02-20', progress: 45 },
+  { id: 3, name: 'Ana García', email: 'ana.g@email.com', plan: 'Dieta + Entreno Trimestral', status: 'activo', since: '2024-11-08', progress: 92 },
+  { id: 4, name: 'Pablo López', email: 'pablo.l@email.com', plan: 'Entreno Mensual', status: 'pausado', since: '2025-03-01', progress: 30 },
+  { id: 5, name: 'Elena Sánchez', email: 'elena.s@email.com', plan: 'Dieta + Entreno Anual', status: 'activo', since: '2024-06-12', progress: 100 },
+  { id: 6, name: 'Miguel Torres', email: 'miguel.t@email.com', plan: 'Dieta Trimestral', status: 'activo', since: '2025-02-28', progress: 22 },
+  { id: 7, name: 'Sara Fernández', email: 'sara.f@email.com', plan: 'Entreno Trimestral', status: 'activo', since: '2025-01-10', progress: 65 },
+  { id: 8, name: 'David Moreno', email: 'david.m@email.com', plan: 'Dieta Mensual', status: 'baja', since: '2024-09-20', progress: 15 },
+];
+
+const stats = [
+  { label: 'Usuarios activos', value: users.filter((u) => u.status === 'activo').length, total: users.length },
+  { label: 'Nuevos este mes', value: 3 },
+  { label: 'Plan más elegido', value: 'Dieta + Entreno' },
+];
+---
+
+<Layout title="Dashboard | VFitness" description="Panel de usuarios VFitness.">
+  <div class="min-h-screen bg-dash-dark text-dash-white font-sans antialiased">
+    <header class="sticky top-0 z-50 border-b border-dash-gold/30 bg-dash-base">
+      <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-4 md:px-6">
+        <div class="flex items-center gap-3">
+          <a href="/" class="text-lg font-semibold tracking-tight text-dash-white">VFitness</a>
+          <span class="rounded bg-dash-gold/20 px-2 py-0.5 text-xs font-medium uppercase tracking-wider text-dash-gold">Dashboard</span>
+        </div>
+        <nav class="flex items-center gap-4 text-sm">
+          <a href="/" class="text-dash-white/70 hover:text-dash-gold">Volver a inicio</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-7xl px-4 py-8 md:px-6">
+      <div class="mb-8">
+        <h1 class="text-2xl font-bold text-dash-white md:text-3xl">Usuarios</h1>
+        <p class="mt-1 text-sm text-dash-white/60">Datos de prueba para revisión del panel.</p>
+      </div>
+
+      <section class="mb-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-label="Resumen">
+        <div class="rounded-lg border border-dash-gold/30 bg-dash-base p-5">
+          <p class="text-sm font-medium text-dash-white/70">{stats[0].label}</p>
+          <p class="mt-1 text-2xl font-bold text-dash-gold">{stats[0].value}<span class="text-base font-normal text-dash-white/50"> / {stats[0].total}</span></p>
+        </div>
+        <div class="rounded-lg border border-dash-gold/30 bg-dash-base p-5">
+          <p class="text-sm font-medium text-dash-white/70">{stats[1].label}</p>
+          <p class="mt-1 text-2xl font-bold text-dash-gold">{stats[1].value}</p>
+        </div>
+        <div class="rounded-lg border border-dash-gold/30 bg-dash-base p-5 sm:col-span-2 lg:col-span-1">
+          <p class="text-sm font-medium text-dash-white/70">{stats[2].label}</p>
+          <p class="mt-1 text-lg font-bold text-dash-white">{stats[2].value}</p>
+        </div>
+      </section>
+
+      <section class="overflow-hidden rounded-lg border border-dash-gold/30 bg-dash-base" aria-label="Listado de usuarios">
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[640px] text-left text-sm">
+            <thead>
+              <tr class="border-b border-dash-gold/30 bg-dash-dark">
+                <th class="px-4 py-3 font-semibold text-dash-gold">Nombre</th>
+                <th class="px-4 py-3 font-semibold text-dash-gold">Email</th>
+                <th class="px-4 py-3 font-semibold text-dash-gold">Plan</th>
+                <th class="px-4 py-3 font-semibold text-dash-gold">Estado</th>
+                <th class="px-4 py-3 font-semibold text-dash-gold">Desde</th>
+                <th class="px-4 py-3 font-semibold text-dash-gold">Progreso</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((u) => (
+                <tr class="border-b border-dash-white/10 transition hover:bg-dash-white/5">
+                  <td class="px-4 py-3 font-medium text-dash-white">{u.name}</td>
+                  <td class="px-4 py-3 text-dash-white/80">{u.email}</td>
+                  <td class="px-4 py-3 text-dash-white/80">{u.plan}</td>
+                  <td class="px-4 py-3">
+                    <span class={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ${u.status === 'activo' ? 'bg-dash-gold/20 text-dash-gold' : u.status === 'pausado' ? 'bg-dash-white/20 text-dash-white/80' : 'bg-dash-white/10 text-dash-white/50'}`}>
+                      {u.status}
+                    </span>
+                  </td>
+                  <td class="px-4 py-3 text-dash-white/70">{u.since}</td>
+                  <td class="px-4 py-3">
+                    <div class="flex items-center gap-2">
+                      <div class="h-2 w-20 overflow-hidden rounded-full bg-dash-white/20">
+                        <div class="h-full rounded-full bg-dash-gold" style={`width: ${u.progress}%`} />
+                      </div>
+                      <span class="text-dash-white/70">{u.progress}%</span>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <p class="mt-6 text-center text-xs text-dash-white/50">Datos ficticios. Ruta: /dashboard</p>
+    </main>
+
+    <footer class="mt-12 border-t border-dash-gold/20 py-4">
+      <div class="mx-auto max-w-7xl px-4 text-center text-xs text-dash-white/50 md:px-6">
+        © {new Date().getFullYear()} VFitness · Dashboard de prueba
+      </div>
+    </footer>
+  </div>
+</Layout>

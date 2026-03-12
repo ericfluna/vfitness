@@ -48,6 +48,13 @@ export default {
           white: '#f8fafc',
           dark: '#0f172a',
         },
+        // Dashboard
+        dash: {
+          base: '#272526',
+          white: '#ffffff',
+          gold: '#b8860b',
+          dark: '#1e1c1d',
+        },
       },
       fontFamily: {
         sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],

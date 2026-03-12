@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE, METHOD, PLANS, RECOMMENDED_PLAN_ID } from '../data/vfitness';
+import heroLoop from '../assets/hero-loop.mp4';
 const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -1 : b.id === RECOMMENDED_PLAN_ID ? 1 : 0));
 ---
 
@@ -35,8 +36,11 @@ const orderedPlans = [...PLANS].sort((a, b) => (a.id === RECOMMENDED_PLAN_ID ? -
 
     <main>
       <section class="relative min-h-[100vh] overflow-hidden border-b border-bio-grey" id="hero">
-        <div class="absolute inset-0 bg-bio-white" />
-        <div class="absolute right-0 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-bio-green/5 blur-3xl" aria-hidden="true" />
+        <div class="absolute inset-0 z-0">
+          <video class="h-full w-full object-cover blur-sm" autoplay loop muted playsinline aria-hidden="true" src={typeof heroLoop === 'string' ? heroLoop : heroLoop.src} />
+        </div>
+        <div class="absolute inset-0 z-[1] bg-bio-white/85" aria-hidden="true" />
+        <div class="absolute right-0 top-1/2 z-[1] h-64 w-64 -translate-y-1/2 rounded-full bg-bio-green/5 blur-3xl" aria-hidden="true" />
         <div class="relative z-10 flex min-h-[100vh] flex-col justify-center px-4 py-24 md:px-8">
           <div class="mx-auto w-full max-w-2xl">
             <p class="text-xs font-medium uppercase tracking-widest text-bio-green">Evidencia científica</p>
